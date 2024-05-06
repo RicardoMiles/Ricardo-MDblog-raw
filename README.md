@@ -2,8 +2,6 @@
 
 The raw material of Ricardo's blog content, MD file based.
 
-
-- [Ricardo-MDblog-raw 博客草稿箱](#ricardo-mdblog-raw-博客草稿箱)
   - [发布流程 Tutorial For Updating-flow](#发布流程-tutorial-for-updating-flow)
     - [新建文章](#新建文章)
     - [发布前流程](#发布前流程)
