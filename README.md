@@ -2,22 +2,27 @@
     <header class="header"> 
         <a href="https://ricardopotter.github.io">
         Ricardo-MDblog-raw 博客草稿箱
-            <style>.header{
-                height:100px；
-            }</style>
         </a>
     </header>
 </html>
 
-<style>
-        .header{
-            height:100px；
-        }
-</style>
-
 The raw material of Ricardo's blog content, MD file based.
 
-[TOC]
+
+- [发布流程 Tutorial For Updating-flow](#发布流程-tutorial-for-updating-flow)
+  - [新建文章](#新建文章)
+  - [发布前流程](#发布前流程)
+  - [异常处理](#异常处理)
+  - [发布](#发布)
+- [常用命令 Basic Hexo Command](#常用命令-basic-hexo-command)
+- [环境搭建 Enviroment for Hexo](#环境搭建-enviroment-for-hexo)
+- [主页隐藏全文教学 Home page hide blog details settings](#主页隐藏全文教学-home-page-hide-blog-details-settings)
+  - [方法一](#方法一)
+  - [方法二](#方法二)
+  - [方法三](#方法三)
+  - [区别](#区别)
+
+
 <html>
     <body>
         <br>
