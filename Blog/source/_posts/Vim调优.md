@@ -1,7 +1,9 @@
 ---
-title: Vim调优
+title: Vim调优（个人向）
 date: 2024-03-15 00:15:03
-tags:
+tags: 
+- Handy-Trick
+- Vim
 ---
 ### ***1. vim调优***
 
@@ -37,7 +39,7 @@ tags:
         ```bash
         :source $MYVIMRC
         ```
-        ![Alt text](/images/vim_load_vimrc.png)
+        ![vimLoadVimrc](/images/vim_load_vimrc.png)
 
 退出后使用`Vim`创建或者编辑任意文件验证，解决。
 
@@ -70,7 +72,7 @@ tags:
         ```bash
         vim --version | grep "clipboard"
         ```
-        ![Alt text](/images/vim_feature_clipboard_support.png)
+        ![VimFeatureClipboardSupport](/images/vim_feature_clipboard_support.png)
         - 如图所示输出结果为`+clipboard`,即为支持；如显示为`-clipboard`则表示不支持
 
 - 调整`_vimrc/.vimrc`文件来确保`Vim`调用系统默认剪切板

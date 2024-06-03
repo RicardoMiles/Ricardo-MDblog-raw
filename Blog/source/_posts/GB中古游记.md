@@ -1,10 +1,12 @@
 ---
 
-title: Travel Journal of UK with CEX collection
+title: UK中古游记
 
 date: 2024-06-03 20:23:00
 
-tags: Travelogue
+tags: 
+- Travelogue
+- Journal
 
 ---
 

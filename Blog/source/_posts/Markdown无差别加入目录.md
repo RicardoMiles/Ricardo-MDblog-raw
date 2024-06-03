@@ -1,7 +1,11 @@
 ---
 title: Markdown无差别加入目录
 date: 2024-06-03 21:51:16
-tags: Handy-Trick
+tags: 
+- Handy-Trick
+- Hexo
+- Git
+- Markdown
 ---
 
 ## Using Add-on in VScode 使用插件
@@ -12,3 +16,7 @@ tags: Handy-Trick
 * 插件名：Markdown All in One
 * 快捷键：`Ctrl`/`Command`+`Shift`+`P`
 * 命令： `Markdown All in One: Create Table of Contents`输入后按回车
+
+## Implementation
+* Hexo Blog
+* Github Readme

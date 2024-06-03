@@ -1,9 +1,16 @@
 ---
 title: Git本地远程冲突解决
 date: 2024-03-16 13:23:51
-tags:
+tags: 
+- Handy-Trick
+- Git
 ---
 
+- [问题描述（可以不看）](#问题描述可以不看)
+- [最速解决方法（省流）](#最速解决方法省流)
+
+
+## 问题描述（可以不看）
 当本地建立git仓库和远程代码托管平台上建立远程git仓库，两个动作并不匹配的时候，会出现一系列的同步问题。以我本次遇到的情况简述：先在本地建立并初始化一git repo，并在本地多次进行一系列 `git add` 和 `git commit` 操作，搭了本仓库的雏形；
 
 ```bash
@@ -46,7 +53,7 @@ git push -u origin master
 问题就出在这里，对于一个本地仓库而言， `git init` 命令初始化全新的仓库后Git不会为用户自动创建任何分支（如果没有任何 `git commit` 记录的话运行 `git branch` 命令，它不会显示任何分支信息）。执行过 `git add` `git commit` 流程后，git创建的本地唯一且默认的分支确实是`master`，**但是远程Github建立仓库时自动生成的唯一默认分支是`main`**。这就导致了我执行上述命令后再进行 `git push` 出现了麻烦，远程仓库出现了两个分支，且本地内容上传成为了非默认分支，两者还无法合并。
 
 理由是两个分支（`main` 和 `master`）之间没有可以比较的内容，因为它们具有完全不同的提交历史记录,甚至有可能不是同一起点（确实如此，本人本地repo是命令行git命令在本地初始化的并将工作区 (working directory) 内容暂存、提交到本地仓库，github托管的远程repo是线上由github初始化的且无任何 `git commit` 记录）。
-![Alt text](images/git_merge_failure.png)
+![Git merge failure](images/git_merge_failure.png)
 
 快刀斩乱麻，展示出目前本地和远程的仓库，在本地建立一个和远程默认仓库分支一致的分支，将本地master分支
 
@@ -97,3 +104,20 @@ Unmerged paths:
 >>>>>>> <commit>
 ```
 做好取舍，删除所有有关的标记，最后一记push解千愁。
+
+
+## 最速解决方法（省流）
+Git 本身的冲突问题，可以有更简洁合适的解决方法。
+
+e.g. main分支是远程主分支，本地主分支也是main，dev分支是需要合并到主分支的开发分支；出现冲突无法与主分支合并。此时应当将本地main与远程main同步到最新状态.
+```bash
+git checkout main
+git pull
+```
+然后再次切换到dev分支，将更新好的main分支合并进来。
+```bash
+git checkout dev
+git merge main
+```
+Git会自动为我们甄别非共同分支的分歧commit然后高亮到当前的dev分支代码里。这时候缺乏共同母分支点的问题已经被解决了，我们需要手动取舍处理好以后，进行dev分支的add和commit甚至push，最后再提出pull request无冲突地合并到远程主分支。
+

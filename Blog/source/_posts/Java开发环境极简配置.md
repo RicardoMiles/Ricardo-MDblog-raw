@@ -1,7 +1,9 @@
 ---
 title: Java开发环境极简配置
 date: 2024-03-15 13:27:21
-tags:
+tags: 
+- Handy-Trick
+- Java
 ---
 
 不得已使用重型IDE intellijIDEA(以下简称"IDEA")，以便课程项目debug。

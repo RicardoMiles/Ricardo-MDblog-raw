@@ -1,7 +1,10 @@
 ---
 title: MacBook版Vagrant遇到debian兼容问题
 date: 2024-02-19 02:55:16
-tags:
+tags: 
+- Handy-Trick
+- macOS
+- Vagrant
 ---
 ## 问题描述 - Issue
 
