@@ -2,6 +2,7 @@
 
 The raw material of Ricardo's blog content, MD file based.
 
+- [Ricardo-MDblog-raw 博客草稿箱](#ricardo-mdblog-raw-博客草稿箱)
   - [发布流程 Tutorial For Updating-flow](#发布流程-tutorial-for-updating-flow)
     - [新建文章](#新建文章)
     - [发布前流程](#发布前流程)
@@ -91,6 +92,16 @@ Check `npm` `Git` `Node.js` have been installed in local machine
 git --version
 npm -v
 node -v
+```
+
+Under `/Blog` folder
+```Powershell
+Remove-Item -Recurse -Force .\node_modules\
+```
+```bash
+npm install -g hexo-cli
+npm install --force
+npm install hexo-deployer-git --save
 ```
 
 ## 主页隐藏全文教学 Home page hide blog details settings
