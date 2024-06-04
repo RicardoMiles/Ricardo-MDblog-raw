@@ -215,7 +215,7 @@ navbar:
     Links: 
       icon: fa-regular fa-link
       submenus:
-        子昂的博客: /link1
+        子昂的博客: https://supgoon.com/
         Google: https://google.com
         ChatGPT: https://chatgpt.com/
     # ...... # you can add more
@@ -305,7 +305,7 @@ articles:
   # Table of contents settings
   toc:
     enable: true # Whether to enable TOC
-    max_depth: 3 # TOC depth
+    max_depth: 5 # TOC depth
     number: false # Whether to add number to TOC automatically
     expand: true # Whether to expand TOC
     init_open: true # Open toc by default
@@ -338,7 +338,7 @@ comment:
   # Whether to enable 
   enable: true
   # Comment system
-  system: waline # waline, gitalk, twikoo, giscus
+  system: gitalk # waline, gitalk, twikoo, giscus
   # System configuration
   config:
     # Waline comment system. See https://waline.js.org/
@@ -350,9 +350,9 @@ comment:
       turnstileKey: # Turnstile key. See https://waline.js.org/reference/client/props.html#turnstilekey
     # Gitalk comment system. See https://github.com/gitalk/gitalk
     gitalk:
-      clientID: Ov23liQmQADVXUBRQtWm # GitHub Application Client ID
-      clientSecret: f5c93824106d47677d0b3c4b3732d518cef0a778 # GitHub Application Client Secret
-      repo: GitalkRicardo # GitHub repository
+      clientID: Ov23liQ2aDqTK9mhvXKL # GitHub Application Client ID
+      clientSecret: 7be4bb5fe7232f32a7a71ca2bfb7dfedeeb60c68 # GitHub Application Client Secret
+      repo: RicardoPotter.github.io # GitHub repository
       owner: RicardoPotter # GitHub repository owner
       proxy: # GitHub repository proxy
     # Twikoo comment system. See https://twikoo.js.org/
