@@ -1,6 +1,8 @@
 ---
 title: Vim调优（个人向）
 date: 2024-03-15 00:15:03
+categories:
+  - Coding
 tags: 
 - Handy-Trick
 - Vim

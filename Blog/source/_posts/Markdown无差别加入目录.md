@@ -1,6 +1,8 @@
 ---
 title: Markdown无差别加入目录
 date: 2024-06-03 21:51:16
+categories:
+  - Coding
 tags: 
 - Handy-Trick
 - Hexo

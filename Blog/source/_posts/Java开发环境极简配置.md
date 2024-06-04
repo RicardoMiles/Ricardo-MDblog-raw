@@ -1,6 +1,8 @@
 ---
 title: Java开发环境极简配置
 date: 2024-03-15 13:27:21
+categories:
+  - Coding
 tags: 
 - Handy-Trick
 - Java

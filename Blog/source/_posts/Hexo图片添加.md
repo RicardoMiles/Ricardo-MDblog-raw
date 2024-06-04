@@ -1,6 +1,8 @@
 ---
 title: Hexo图片添加
 date: 2024-06-03 22:17:34
+categories:
+  - Coding
 tags: 
 - Handy-Trick
 - Hexo
