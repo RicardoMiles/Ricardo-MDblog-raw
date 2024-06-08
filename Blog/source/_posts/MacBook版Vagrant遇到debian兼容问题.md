@@ -7,6 +7,7 @@ tags:
 - Handy-Trick
 - macOS
 - Vagrant
+- Software Error Log
 ---
 ## 问题描述 - Issue
 

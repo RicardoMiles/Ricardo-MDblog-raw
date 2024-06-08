@@ -1,7 +1,10 @@
 ---
 title: Msc Project Meeting I
 date: 2024-06-05 12:08:04
-tags: - LearningCS
+categories: 
+- Coding
+tags: 
+- CS Learning
 - Research
 - University of Bristol
 - Machine Learning

@@ -6,7 +6,6 @@ date: 2024-06-03 20:23:00
 
 categories:
   - Journal
-  - 
 tags: 
 - Travelogue
 - Journal

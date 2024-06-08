@@ -3,11 +3,10 @@ title: The Idea of You Vocabulary
 date: 2024-05-11 23:26:23
 categories:
   - SLA
-  - English Learning
 tags: 
 - Vocabulary
-- Note
 - SLA
+- English Learning
 ---
 
 
