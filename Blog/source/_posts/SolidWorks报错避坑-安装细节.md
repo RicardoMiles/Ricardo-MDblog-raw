@@ -48,6 +48,6 @@ categories:
 * 要替换安装文件夹中的内容，一定要替换。默认安装直接在`\ProgramData`目录下找到SolidWorks Corp. 文件夹里面替换；自定义安装位置的话，在安装目录的同级目录更换。
 
 ## 资源链接
-* 官方安装包清华网盘镜像：https://cloud.tsinghua.edu.cn/d/79df7b0de78c4b278f01/
-* 辅助文件包 `_SolidSQUAD`：https://pan.baidu.com/s/1-cT-Lqad_9PMr9rqnmsAng?pwd=5fba 提取码: 5fba (解压密码：xifengboke.com)
+* SolidWorks官方安装包：[清华网盘正版镜像](https://cloud.tsinghua.edu.cn/d/79df7b0de78c4b278f01/)
+* 辅助文件包 `_SolidSQUAD`：[OneDrive链接](https://shueducn-my.sharepoint.com/:u:/g/personal/liutianyi_shu_edu_cn/EaCpiQKfWMRPmoVtgFf6XrMBSdEUFysamCtLifoDnnbmUg?e=eg3cXd)
 

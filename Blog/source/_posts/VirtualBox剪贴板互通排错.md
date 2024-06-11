@@ -41,3 +41,10 @@ virtualbox轻量开源，但是随之而来存在复制粘贴，文件拖拽不�
 ![](/images/2024-06-10-00-23-00-image.png)
 
 本人使用的是命令行界面的Debian，不便于展示安装流程。如使用Windows镜像的虚拟机Windows在VirtualBox虚拟机里弹出“oracle vm virtualbox guest additions x.x.x Setup”安装软件界面，直接点击“NXET”按钮或“Install”按钮直到出现“Finish”按钮为止。点击“Finish”按钮，重新启动虚拟机。VirtualBox的共享粘贴板功能可以正常使用了.
+
+Ubuntu的用户，在点击安装增强功能后系统会自动挂载光驱。打开挂载文件夹，用命令行进行安装后重启虚拟机即可。
+
+```bash
+chmod u+x VboxLinuxadditions run
+sudo ./VboxLinuxadditions run
+```
