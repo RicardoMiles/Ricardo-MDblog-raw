@@ -15,7 +15,7 @@ info:
   # Author name
   author: Ricardo Pu
   # Site URL
-  url: https://ricardopotter.github.io/
+  url:  https://ricardopotter.github.io/RicardoBlog/
 # BASIC INFORMATION <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end
 
 
@@ -350,9 +350,9 @@ comment:
       turnstileKey: # Turnstile key. See https://waline.js.org/reference/client/props.html#turnstilekey
     # Gitalk comment system. See https://github.com/gitalk/gitalk
     gitalk:
-      clientID: Ov23liQ2aDqTK9mhvXKL # GitHub Application Client ID
-      clientSecret: 7be4bb5fe7232f32a7a71ca2bfb7dfedeeb60c68 # GitHub Application Client Secret
-      repo: RicardoPotter.github.io # GitHub repository
+      clientID: Ov23liGO2xyBBdllskJp # GitHub Application Client ID
+      clientSecret: 4a88fea52acc1bb7ad9f8b5796eca97de4427af9 # GitHub Application Client Secret
+      repo: RicardoBlog # GitHub repository
       owner: RicardoPotter # GitHub repository owner
       proxy: # GitHub repository proxy
     # Twikoo comment system. See https://twikoo.js.org/
