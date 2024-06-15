@@ -6,6 +6,7 @@ categories:
 tags: 
 - Handy-Trick
 - Java
+excerpt: Windows命令行安装Java开发环境 | CommandLine installation of Java dev environment for Windows users.
 ---
 
 不得已使用重型IDE intellijIDEA(以下简称"IDEA")，以便课程项目debug。

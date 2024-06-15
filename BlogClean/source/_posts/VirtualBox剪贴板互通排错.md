@@ -8,7 +8,7 @@ categories:
 tags: 
   - Handy-Trick
   - VirtualBox
-
+excerpt: VirtualBox下虚拟机和实体机无法互相粘贴的解决 | Tutorial for fixing Clipboard sharing error of VirtualBox
 ---
 
 由于vmware最近官网下载服务器宕机，国内网页和UK官网都无法下载。所以选择了virtualbox安装虚拟机。

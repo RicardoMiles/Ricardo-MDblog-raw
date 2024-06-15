@@ -6,6 +6,7 @@ categories:
 tags: 
 - Handy-Trick
 - Hexo
+excerpt: Hexo博客添加图片的三种方法 | How to insert images to Hexo blogs
 ---
 
 ## 使用绝对路径

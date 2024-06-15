@@ -8,6 +8,7 @@ tags:
 - Hexo
 - Git
 - Markdown
+excerpt: 为Github README和pdf插入支持显示跳转的目录 | Add table of content into MD in order to enable skip in README.md-Github and .pdf version of doc.
 ---
 
 ## Using Add-on in VScode 使用插件

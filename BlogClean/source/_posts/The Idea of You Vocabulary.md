@@ -7,6 +7,7 @@ tags:
 - Vocabulary
 - SLA
 - English Learning
+excerpt: Movie The Idea of You as language learning material
 ---
 
 

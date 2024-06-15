@@ -6,6 +6,7 @@ categories:
 tags: 
 - Handy-Trick
 - Vim
+excerpt: Vim的个人偏好调教，优化至更适合熟悉图形化用户界面的用户使用 | Handy trick of vim preference and settings.
 ---
 ### ***1. vim调优***
 

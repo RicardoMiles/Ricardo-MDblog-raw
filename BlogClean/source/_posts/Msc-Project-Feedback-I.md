@@ -9,4 +9,5 @@ tags:
 - University of Bristol
 - Machine Learning
 - BCI 
+excerpt: First Note of techniques learned in UoB summer project.
 ---

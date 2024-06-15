@@ -8,6 +8,7 @@ tags:
 - macOS
 - Vagrant
 - Software Error Log
+excerpt:  X86 macOS版本Vagrant安装debian报错该包不存在，原因在于curl版本 | Fix failure of debian installation on macOS version vagrant with the error message "This package does not exist."
 ---
 ## 问题描述 - Issue
 

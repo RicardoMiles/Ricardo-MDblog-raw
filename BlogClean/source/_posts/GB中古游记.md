@@ -9,7 +9,7 @@ categories:
 tags: 
 - Travelogue
 - Journal
-
+excerpt: Cex二手店中古电子产品提货记录 & UK城市漫游 | Travelogue for pick up second-hand goods all over the Great Britain.
 ---
 
 

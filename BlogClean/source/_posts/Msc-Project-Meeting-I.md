@@ -9,6 +9,7 @@ tags:
 - University of Bristol
 - Machine Learning
 - BCI    
+excerpt: Kick-off part of personal individual summer project.
 ---
 
 ## Sections should be included

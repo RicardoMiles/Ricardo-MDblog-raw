@@ -7,6 +7,7 @@ categories:
 tags: 
 - Handy-Trick
 - Git
+excerpt: 手动解决Github本地分支与远程分支以及远程分支之间冲突 | Solve merge conflicts manually between remote branch and local branch
 ---
 
 - [问题描述（可以不看）](#问题描述可以不看)

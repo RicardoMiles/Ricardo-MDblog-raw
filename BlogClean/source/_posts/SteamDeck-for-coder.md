@@ -8,6 +8,7 @@ tags:
 - Steam Deck
 categories: 
 - Coding
+excerpt: Steam Deck 基本开发环境安装 | Basic Toolkit for developers on SteamOS
 ---
 
 
