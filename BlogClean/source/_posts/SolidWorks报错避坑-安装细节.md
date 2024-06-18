@@ -7,7 +7,7 @@ tags:
 - Software Error Log
 categories: 
 - Software Error Log
-excerpt: " 彻底解决SolidWorks无法获得下列许可 SOLIDWORKS Standard "的激活错误
+excerpt: 彻底解决SolidWorks无法获得下列许可 SOLIDWORKS Standard 的激活错误
 ---
 
 
