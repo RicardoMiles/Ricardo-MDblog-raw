@@ -1,5 +1,5 @@
 ---
-title: Msc Project Feedback
+title: Msc Project Feedback I
 date: 2024-06-09 19:39:21
 categories: 
 - Coding
@@ -10,7 +10,8 @@ tags:
 - Machine Learning
 - BCI 
 - NN
-- 
+- RNN
+- LSTM
 excerpt: First Note of techniques learned in UoB summer project.
 ---
 
