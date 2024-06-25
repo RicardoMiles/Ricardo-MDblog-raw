@@ -12,6 +12,6 @@ tags:
 - NN
 - RNN
 - LSTM  
-excerpt: Chores about Ethnic Form and Overleaf Template for literacy review 
+excerpt: Chores about Ethnic Form and Overleaf Template for literacy review.
 ---
 
