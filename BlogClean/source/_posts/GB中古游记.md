@@ -15,34 +15,6 @@ excerpt: Cex二手店中古电子产品提货记录 & UK城市漫游 | Travelogu
 
 
 
-- [June](#june)
-  - [Gloucester](#gloucester)
-    - [**It is a cathedral city.**](#it-is-a-cathedral-city)
-    - [**It is the county town of Gloucestershire.**](#it-is-the-county-town-of-gloucestershire)
-    - [**It lies on the River Severn.**](#it-lies-on-the-river-severn)
-    - [Gloucester was **founded by the Romans** and became an important city and colony in AD 97, under **Emperor Nerva** as Colonia Glevum Nervensis.It was granted its first **charter** in 1155 by Henry II.](#gloucester-was-founded-by-the-romans-and-became-an-important-city-and-colony-in-ad-97-under-emperor-nerva-as-colonia-glevum-nervensisit-was-granted-its-first-charter-in-1155-by-henry-ii)
-    - [Major attraction of the city is Gloucester Cathedral](#major-attraction-of-the-city-is-gloucester-cathedral)
-    - [The former county jail](#the-former-county-jail)
-    - [Trip of Cex](#trip-of-cex)
-    - [England Era](#england-era)
-  - [Bristol](#bristol)
-    - [Churches in Bristol](#churches-in-bristol)
-    - [Bristol 独立教会 Entity](#bristol-独立教会-entity)
-    - [Chapel Court Church Cathedral](#chapel-court-church-cathedral)
-    - [Little Brothers of Nazareth](#little-brothers-of-nazareth)
-    - [Bristol- Incomplete City](#bristol--incomplete-city)
-    - [Augustinian Abbey](#augustinian-abbey)
-    - [Prayer and Mass](#prayer-and-mass)
-- [July](#july)
-
-
-
-
-
-
-
-
-
 ## June
 
 ### Gloucester
