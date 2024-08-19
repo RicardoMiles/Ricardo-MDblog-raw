@@ -1,4 +1,4 @@
-# <a href="https://ricardopotter.github.io">Ricardo-MDblog-raw 博客草稿箱</a>
+# <a href="https://ricardopotter.github.io/RicardoBlog">Ricardo-MDblog-raw 博客草稿箱</a>
 
 The raw material of Ricardo's blog content, MD file based.
 
@@ -21,7 +21,7 @@ The raw material of Ricardo's blog content, MD file based.
     <body>
         <br>
         <p>Resources文件夹全部都是草稿媒体文件；<br>Blog文件夹是基于<strong>Hexo</strong>框架搭建的博客模板源文件，亦是我博客的草稿箱状态；</p>
-        <p><a href="https://ricardopotter.github.io">博客直链 Blog link</a></p>
+        <p><a href="https://ricardopotter.github.io/RicardoBlog">博客直链 Blog link</a></p>
         <p></p>
     </body>
 </html>
@@ -94,7 +94,7 @@ npm -v
 node -v
 ```
 
-Under `/Blog` folder
+Under `/BlogClean` folder
 ```Powershell
 Remove-Item -Recurse -Force .\node_modules\
 ```
