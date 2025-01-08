@@ -4,9 +4,7 @@ date: 2024-05-07 23:41:56
 tags:
   - Journal
   - Buzz
-  - Post-Pandemic Era
-  - Solicitor
-  - Law
+  - Law and Legal Service
 categories:
   - Journal
 excerpt: "Aristotle·张曾经在小酌时候跟我感慨，如今概念替代实体的问题越来越严重。"

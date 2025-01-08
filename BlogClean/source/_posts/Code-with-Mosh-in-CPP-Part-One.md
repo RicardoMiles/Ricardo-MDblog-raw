@@ -4,8 +4,10 @@ date: 2025-01-06 15:45:03
 tags:
  - CS Learning
  - CPP
-categories:
+ - Vocabulary
+ - English Learning
  - SLA
+categories:
  - Coding
 excerpt: "Tutorial notes and English output try as a non-native blogger."
 ---
