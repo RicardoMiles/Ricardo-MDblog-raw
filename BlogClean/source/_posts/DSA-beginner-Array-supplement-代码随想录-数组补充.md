@@ -48,7 +48,7 @@ An **array** in C++ is a collection of elements of the **same data type** stored
 
 * **Homogeneous Elements**: All elements must be of the same type.
 
-### SLA part
+### **SLA part**
 
 * **Continuous** deals with **time or sequence** (uninterrupted flow or action).
 
@@ -60,7 +60,7 @@ An **array** in C++ is a collection of elements of the **same data type** stored
 
   
 
-### Syntax Example
+### **Syntax Example**
 
 ```cpp
 int arr[5] = {1, 2, 3, 4, 5}; // An integer array with 5 elements
@@ -81,7 +81,7 @@ What is the Difference Between Array and Vector in C++?
 | Operations        | Limited operations(e.g., no insert or erase)           | Rich STL funstionalities (e.g., push_back, pop_back)         |
 | Performance       | Faster for fixed-size data due to no overhead          | Slightly slower due to dynamic allocation and management overhead |
 
-### SLA part
+### **SLA part**
 
 * **Overhead**
   - Above your head (position)
@@ -91,10 +91,6 @@ What is the Difference Between Array and Vector in C++?
 ## Implement a Vector Using Array
 
 We can simulate a vector’s behavior using arrays by manually handling resizing and dynamic memory allocation.
-
-
-
-**Example Code:**
 
 ```cpp
 #include <iostream>
@@ -161,13 +157,91 @@ int main() {
 
 *  **Multidimensional Support**: Can create 2D or multi-dimensional arrays.
 
-```cpp
-int matrix[3][3] = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}}; // 2D array
-```
+  ```cpp
+  int matrix[3][3] = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}}; // 2D array
+  ```
 
 ## **Typical Algorithms  Related to Arrays**
 
-​	1.	**Search**: Linear search (O(n)) and binary search (O(log n) for sorted arrays).
+ 1. **Search**: Linear search (O(n)) and binary search (O(log n) for sorted arrays).
+
+    * Linear Search in Array of int
+
+      ```cpp
+      #include <iostream>
+      using namespace std;
+      
+      int linearSearch(int arr[], int n, int target) {
+          for (int i = 0; i < n; i++) {
+              if (arr[i] == target) {
+                  return i; // Found, return index
+              }
+          }
+          return -1; // Not found
+      }
+      
+      int main() {
+          int arr[] = {2, 4, 6, 8, 10};
+          int n = sizeof(arr) / sizeof(arr[0]);
+          int target = 6;
+      
+          int result = linearSearch(arr, n, target);
+          if (result != -1) {
+              cout << "Element found at index " << result << endl;
+          } else {
+              cout << "Element not found" << endl;
+          }
+          return 0;
+      }
+      ```
+
+      
+
+    * Linear Search in a Vector (Using STL containers)
+
+      ```cpp
+      ```
+
+      
+
+    * Case-Insensitive Linear Search in a String
+
+      ```cpp
+      ```
+
+      
+
+    * Finding an Object in a List of Objects by Linear Search
+
+      ```cpp
+      #include <iostream>
+      using namespace std;
+      
+      int linearSearch(int arr[], int n, int target) {
+          for (int i = 0; i < n; i++) {
+              if (arr[i] == target) {
+                  return i; // Found, return index
+              }
+          }
+          return -1; // Not found
+      }
+      
+      int main() {
+          int arr[] = {2, 4, 6, 8, 10};
+          int n = sizeof(arr) / sizeof(arr[0]);
+          int target = 6;
+      
+          int result = linearSearch(arr, n, target);
+          if (result != -1) {
+              cout << "Element found at index " << result << endl;
+          } else {
+              cout << "Element not found" << endl;
+          }
+          return 0;
+      }
+      ```
+
+
 
 ​	2.	**Sorting**: QuickSort, MergeSort, BubbleSort, etc.
 
