@@ -1,3 +1,7 @@
+
+
+## Array
+
 ###  **Creating and intialising arrays**
 
 * C plus plus never block us from accessing the invalid index element, we will get a little warnings but still compile code sucessfully.
@@ -288,6 +292,8 @@ For (int row = 0; row < rows; row++){
 ```
 
 Pass the multi-dimensional array as a parameter to a function, call the function by pass the variable name of array
+
+## Pointer
 
 ### **What is a pointer** 
 
@@ -695,9 +701,11 @@ int main(){
 }
 ```
 
-
+## String
 
 ### **C Strings v.s. C++ Strings**
+
+
 
 ### **Modifying Strings**
 
