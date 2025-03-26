@@ -1,4 +1,4 @@
-###  Creating and intialising arrays
+###  **Creating and intialising arrays**
 
 * C plus plus never block us from accessing the invalid index element, we will get a little warnings but still compile code sucessfully.
 
@@ -20,7 +20,7 @@
 
 * Omitting the number in square bracket when we declare an array while offering the value of elements, our compiler will infer the array size by itself. For example, `int arrays[] = {1,2}`, our compiler can know the size by brace initialiser 
 
-### Determine the Size of Array
+### **Determine the Size of Array**
 
 * Range-based Loop for Array 
 
@@ -103,16 +103,13 @@
    }
    ```
 
-   
-
-  
 
 
-### Copying Arrays
+### **Copying Arrays**
 
 * In C++ we can not assign one array to another one , if we wanna copy an array, we should copy elements one by one, it was always done by traditional for loop because element should be put in the same index (position) of those two arrays. 
 
-### Comparing Arrays
+### **Comparing Arrays**
 
 * The reason why we can't compare two arrays by their name in if statement is that when we access array by its name, we get a hexdecimal number which is array's pointer. Two arrays could not be allocated in same area of memory, so there is no possibility that comparing two arrays by their name like `if(FirstArray == SecondArray)`. **It is deadly error cause!**
 
@@ -140,7 +137,7 @@
   }
   ```
 
-### Passing Arrays to Functions
+### **Passing Arrays to Functions**
 
  Under the hood, when we reference an array without index, it is a hexdecimal number stores memory addresss working as pointer . So, it is impossible to loop over a number, we can loop a list of elements
 
@@ -178,7 +175,7 @@ void PrintAray(int numbers[],int size){
 }
 ```
 
-### Understanding `size_t` 
+### **Understanding `size_t`** 
 
 Size_t is a data type defined in C plus plus standard library , "t" here is a short for type, when we use `sizeof()` operator , cpp will automatically returns a data structure called `size_t `
 
@@ -187,7 +184,7 @@ Size_t is a data type defined in C plus plus standard library , "t" here is a sh
 * Long long take 8 Bytes of memory
 * numeric_limits class is defined in a standard library
 
-### Unpacking Arrays
+### **Unpacking Arrays**
 
 No matter how we called it, we can use this hack to unpacking an array to couple of different variables like shown below
 
@@ -219,7 +216,7 @@ int main(){
 
 * equivalent advanced unpacking that takes use of CPP 11 new feature
 
-### Searching Arrays
+### **Searching Arrays**
 
 * Linear searching: iterating the whole list to compare - Time complecity - O(1) - O(n)big one notation
 
@@ -264,10 +261,461 @@ int main(){
 ### **Sorting Arrays**
 
 * Bubble Sort, Selection Sort, Insertion Sort, Merge Sort, QuickSort
+* Reflection on Bubble Sort was in [Reflection on Bubble Sort Implementation](https://ricardopotter.github.io/RicardoBlog/2025/03/10/Reflection-on-My-Implementation-of-Bubble-Sort/)
+* More Sort Learning Excerpts tbc.
 
-###  Sequenise the Array
+### **Multiple Dimensional Array**
 
-### Multiple Dimensions Array
+Represent a matrix using 2-dimensional array, 2 by 3 matrix declared two row three columns
+
+```cpp
+Int matrix[2][3] = {
+
+{11,12,13},
+
+{21,22,23}
+
+};
+
+For (int row = 0; row < rows; row++){
+
+	For(int col = 0; col < columns; col++){
+
+		cout << matrix[row][col] << endl;
+
+	}
+}
+```
+
+Pass the multi-dimensional array as a parameter to a function, call the function by pass the variable name of array
+
+### **What is a pointer** 
+
+Pointer is a special variable that hold the address of another variable in memory
+
+A variable is just a label for memory address
+
+Pointers could efficiently pass large objects, do dynamic memory allocation, enable polymorphism
+
+### **Declare and use a pointer** 
+
+Every variable has an address, prefix the variable name with & like `&variablename`
+
+`&` is called the address-of operator, we can use it to access address value of variable 
+
+Variable Type + asterisk -> represent a pointer e.g. `int*` 
+
+Followed by a pointer variable name, just other type of variable e.g. `int* ptr`
+
+Just like other variables, if we don't initialise this pointer, it's gonna hold garbage or junk values. So if we use uninitialised pointer, we might end up accessing a part of memory we are not supposed to , and in that case the operating system is going to terminate out program and say memory access violation. So as a best practice, we should always initialise our pointers.
+
+In order to initialise our pointers, we can use address-of operator to set our pointer variable's value to the address of another variable. If we don't know what variable this is going to point to, we can set to null pointer e.g. `int* ptr = nullptr` , `nullptr` is a special keyword in modern C plus plus, it is a pointer does not point to anything.
+
+In the future, we can benefit from null pointer by check a pointer before use it. (Be like if it is not a nullpointer, we are gonna use it)
+
+In the earlier version of C plus plus and C we use `NULL` in all capital or `0`, modern CPP use `nullptr`
+
+Dereferencing operator(Indirection), type an asterisk before our pointer like `*ptr`, with this we can access the data at target memory location. 
+
+* Asterisk being put at right after the data type -> address-of operator
+
+* Asterisk being put at left of pointer variable name -> indirection / dereferencing operator
+
+### **Constant Pointer**
+
+If our variable is constant integer like `const int x = 10`, then use `int* ptr` point to the variable x will cause compilation error, cuz we can not use an integer pointer point to a constant integer, the type should be identical.  
+
+So we use constant interger pointer shown below
+
+```cpp
+int main(){
+    const int x = 10;
+    const int* ptr = &x;
+
+// Over there, if we use indirection operation to access this memory location 
+// And try to update the value
+// We get compilation error, cuz it's the same as setting x to 20.
+// It's illegal bc x is constant variable
+// *ptr = 20; is not allowed here
+// We can set another variable and make our pointer point to it
+// Our pointer is not constant
+// It's a normal pointer points to constant int type
+
+     int y = 10;
+     ptr = &y;
+     *ptr = 20;
+
+     return 0;
+ }
+```
+
+To define a constant pointer, we should put the `const` keyword after the asterisk like this `int* const ptr = &x`. Once we have this, we can not change it value. That means we should always initialise constant pointer cuz we can't change its value later.
+
+This two groups of concept are totally different
+
+* constant pointer points to constant integer
+
+* pointer points to constant integer
+
+### **Passing Pointers to Functions** 
+
+If we pass a variable's value to void function, and then update the value in the function. When we call the variable again, nothing gonna happen to the original variable's value. Cuz the operation mechanism under the hood was just copy the value stored in original variable when calling and passing value to void function in main function. Then the copied value will be assigned to the parameter of void function, which works like local variable of those void functions. When the void function finished running, all local variable would be crashed. 
+
+```cpp
+ void increasePrice(double price){
+   price *= 1.20; 
+ }
+
+ int main(){
+     double price = 100;
+     increasePrice(price);
+     cout << price;
+     return 0;
+ }
+```
+
+The output of above code snippest gonna be still 100. 
+
+Then we can use an OG style of pointer operation to passing value around
+
+```cpp
+void increasePrice(double* price){
+  *price *= 1.2 ;
+}
+
+int main(){
+  double price = 10;
+  double* priceptr = &price;
+  increasePrice(priceptr);
+
+  // It can be simplifies to increasePrice(&price)
+
+  //but for clarity I declared a new variable
+
+  cout << price;
+
+  return 0;
+
+}
+```
+
+In that case, value of price would be updated properly. It is complex but makes lots of sense.
+
+In modern C++, references are often preferred, which is introduced in Mosh's course. References cannot be `nullptr` , whereas pointers can be null, leading to potential undefined behavior.
+
+- **Modern C++**hide the dereferencing (`*`) and address-of (`&`) operations, making the code more readable.
+
+  ```cpp
+  void increasePricer(double& price) { 
+    price *= 1.2; 
+  }  // No explicit dereferencing needed
+  ```
+
+- **Pointers** require explicit dereferencing (`*`) and often extra variables to hold addresses.
+
+  ```cpp
+  void increasePrice(double* price) { 
+    *price *= 1.2; 
+  }  // Must dereference explicitly
+  ```
+
+With references, we don’t need an extra pointer variable. We directly pass variable prototype to the function, then it'll be dealt by address-of operator in parameters definition.
+
+```cpp
+void increasePrice(double& price){
+  price *= 1.2 ;
+}
+
+int main(){
+  double price = 10;
+  increasePrice(price); // Directly pass variable to it
+  cout << price;
+  return 0;
+}
+```
+
+### **The Relationship Between Arrays and Pointers**
+
+After declaration of an array, we can print **the memory address of the first element in array** in hexdecimal number. Like
+
+```cpp
+int main(){
+	int ArrayName = {1,2,3};
+	cout << ArrayName << endl;
+  // We are going to get a hexdecimal number here
+  cout << *ArrayName << endl;
+  // We are going to get number 10 on screen
+	return 0;
+}
+
+```
+
+Compiler treats our array name as an pointer to the first element of array. We can assign it to any other pointer like shown below
+
+```cpp
+int main(){
+    int numbers[] = {10,20,30};
+    int* ptr = numbers;
+    // We initialised a pointer by another one.
+    cout << *numbers;    
+    return 0;
+}
+```
+
+That is why when we pass an array to function, `size()` doesn't work with the array name. Compiler treat the parameter as an int pointer, and we can't pass an address to `size()` function and use range-based for loop
+
+```cpp
+void printNumbers(int numbers[]){
+	  numbers[0] = 0;
+}
+
+int main(){
+  int numbers[] ={10,20,30};
+  int* ptr = numbers;
+  printNumbers(numbers);
+  cout << numbers[0] << endl;
+  // then it gonna be 0 in output
+	return 0;
+}
+```
+
+Our array is passed by reference, so it means every changes we make to this array is gonna be visible outside of the function. C++ compilers always pass array using a pointer.
+
+### **Pointer Arithmetic**
+
+When we increase our ptr by `ptr++`, the value of ptr increase by `sizeof(numbers)`
+
+`ptr + 1` == `*ptr + sizeof(datatype it points to)`
+
+For example
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main(){
+	int numbers[] = {10,20,30};
+	int* ptr = numbers;
+  // Let's say the value of ptr is 100
+  
+  // 3 equivalent expressions
+  cout << ptr[1]; 
+  cout << numbers[1];
+  cout << *(ptr+1);
+  
+  ptr++;
+  // Current ptr value is not 101, it's 104 bc sizeof(int) == 4
+  cout << *ptr << endl;
+  // Then if we print the dereferenced ptr, we are gonna see the second element's value
+  // It is 20
+	return 0;
+}
+```
+
+We can also do subtraction to pointers like `ptr--`
+
+### **Comparing Pointers**
+
+The pointers can be compared by `<`,` >`, `==`, `!=`
+
+We can use it to avoid nullpointer
+
+```cpp
+if(ptrX != nullptr){
+	cout << *ptrX;
+}
+// If the pointer is not null pointer, then use it
+```
+
+### **Dynamic Memory Allocation**
+
+During program execution or runtime, if it needs more space we can allocate it on demand, we are gonna use a nex syntax to implement dynmamic memory allocation
+
+```cpp
+int main(){
+   // Stack
+   // int numbers[1000];
+  
+   // Heap (Free Store)
+   int* numbers = new int[10];
+   delete[] numbers;
+   // the square brackets here just because it deallocating array
+   int* number = new int;
+   delete number;
+   // reset
+   number = nullptr;
+   numbers = nullptr;
+   return 0;
+}
+```
+
+Use `new` operator followed by the target type, when we use this syntax to declare such a variable, that variable is declare in a part of memory called Heap (Free Store). The new operation returns a pointer.
+
+Goings that variables declared on Stack is: they get automatic cleanup, when it is going to go out of the scope (e.g. the fucntion it was declared at)  ,memory that was allocated to it will get released automatically
+
+When we declare a variable on the Heap using the `new` operator, we programmers are responsible for the cleanup. Once we have used the variable, we should always dealocate memory using the `delete` operator
+
+### **Dynamically Resizing an Array**
+
+The implementation of resizing an array should include 
+
+* Resize the array when it is full (Checking size - usually if block)
+* Create a temp array (twice as the current size)
+* Copy all the elements
+* Have original array-name pointer point to the new array
+
+Debugging reflection of dynamically resizing an array was shown in [Dangling Pointer and C++ Scope Rules](https://ricardopotter.github.io/RicardoBlog/2025/03/26/Reflection-on-Scope-Rules-and-Dangling-Pointer/)
+
+Then we should not only recycle the array once. It is dynamical so it shall be more flexible like this
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main(){
+    // Creating integer array 
+    int* numbers = new int[5];
+    // Use a variable to track the entry point
+    // Initialising it to zero
+    int entries = 0;
+    int capacity = 5;
+    
+    // Constantly ask users to enter a number
+    // Store it to our array
+    while(true){
+        cout << "Number: ";
+        cin >> numbers[entries];
+        // check whether it is a valid number or not
+        // if cin.fail() returns True means
+        // users enter something can't be converted to a number
+        // we're gonna break out of this loop
+        if(cin.fail()){
+            break;
+        }
+        // otherwise we're going to increase entries by 1
+        entries++;
+        // Resize the array when it is full
+        if(entries == capacity){
+            // Create a temp array (twice the size)
+            // Copy all the elements
+            // Have "numbers" pointer point to the new array
+            cout << "The arraySize = " << entries << "We are gonna resize it."<< endl;
+            capacity *= 2;
+            int* temp = new int[capacity];
+            for(int i = 0; i < entries; i++){
+                temp[i] = numbers[i];
+            }
+            delete[] numbers;
+            // int* numbers = &(temp[0]);
+            // Wrong code is above
+            numbers = temp;
+        }
+    }
+
+    // loop to print user-entered numbers so far
+    for (int i = 0; i < entries; i++){
+        cout << numbers[i] << endl;
+    }
+    
+    
+    delete[] numbers;
+    
+
+    return 0; 
+}
+```
+
+That is standard implementation of it in C++ called vector. See it later.
+
+### **Smart Pointers**
+
+In modern C++ we have a new concept called smart pointer which free us from having to deleting these pointers. We can work with them just like regular variables that we declare on the stack
+
+* Unique pointers
+* Shared pointers
+
+### **Working with Unique Pointers**
+
+We can not have 2 unique pointers point to the same piece of memory location
+
+```cpp
+#include <iostream>
+#include <memory>
+
+using namespace std;
+
+int main(){
+  unique_ptr<int> jptr(new int);
+  
+  // we gonna see a memory address
+  cout << jptr << endl;
+  
+  // De-referencing it and do arithmetic operation
+  *jptr = 10;
+  cout << *jptr << endl;
+  
+  // Generic function with different datatype return instance of unique pointer class
+  unique_ptr<int> lptr = make_unique<int>();
+  // Equivalent to above
+  auto lptr = make_unique<int>();
+  
+	return 0;
+}
+```
+
+* `unique_ptr` is a class, right after the classname we use the angle brackets, inside of the brackets we are specified the type of pointer we want to create, then give it a variable name like `jptr` then followed by a pair of parenthesises.
+* In the parenthesises pair, we use `new` operator to creat an integer pointer, which passing it to `jptr`
+* `jptr` is called object
+* an object is an instance of class
+* We can not do pointer arithmetic operation to `jptr`
+* There is a generic function that can create a unique pointer instance called `make_unique<datatype>()`
+
+### **Working with Shared Pointers**
+
+```cpp
+#include <iostream>
+#include <memory>
+
+using namespace std;
+
+int main(){
+  shared_ptr<int> x(new int);
+  shared_ptr<int> duplicateX = make_shared<int>();
+  auto z = make_shared<int>();
+  
+  *x = 10;
+  
+  // Initialising y using x
+  shared_ptr<int> y(x);
+  if(x == y){
+    cout << "Equal"; 
+  }
+  
+	return 0;
+}
+```
+
+
+
+### **C Strings v.s. C++ Strings**
+
+### **Modifying Strings**
+
+
+
+### **Searching Strings**
+
+
+
+### **Extracting substrings**
+
+
+
+### **Converting Strings to Numbers and Vice Versa**
+
+
+
+
 
 
 
