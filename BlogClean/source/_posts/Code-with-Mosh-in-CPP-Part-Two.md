@@ -1,4 +1,16 @@
-
+---
+title: Code with Mosh in CPP Part Two
+date: 2025-03-06 07:45:03
+tags:
+ - CS Learning
+ - CPP
+ - Vocabulary
+ - English Learning
+ - SLA
+categories:
+ - Coding
+excerpt: "Tutorial excerpts from Mosh’s CPP course part 2."
+---
 
 ## Array
 
@@ -760,11 +772,11 @@ local variables (including arrays) declared inside a function (like `main`) are 
 
 There is 3 ways to fix grabage value issues
 
-#### Use Empty Brace Initialiser
+* Use Empty Brace Initialiser
 
  `int array[5] = {}` , value 0 will be assigned to all elements automactically.
 
-#### Global Array & Static Array
+* Global Array & Static Array
 
 Put array outside of any function -> Global Array;
 
@@ -772,7 +784,7 @@ Use keyword `static` before declaration statement like `static int arrays[5]` ->
 
 Both of the methods above initialise all elements of array into zero value.
 
-#### Partial initialization by brace initialiser
+* Partial initialization by brace initialiser
 
 `int arrays[5] = {10,20}` <- first two elements were explicitly assigned;
 
@@ -864,12 +876,6 @@ cout << boolalpha << false; // Output: false
 
 In C++, `numeric_limits` is a **class template** defined in the `<limits>` header. It provides information about the properties of arithmetic types (like `int`, `float`, `double`, etc.).
 
-**Class template** means it’s a class that takes a type as a parameter, like this:
-
-```cpp
-template <typename T> class numeric_limits;
-```
-
 ```cpp
 // Examples for using numeric limits
 #include <iostream>
@@ -891,64 +897,173 @@ What’s happening here:
 
 - `is_signed` is a **static constant**.
 
-- There is more different static constant member functions and static member functions:
+- There is more different static constant and static member functions:
 
-- works with angle brackets
+  Key static member functions:
 
-  #### Key static member functions:
+  - `max()` — Returns the maximum representable value.
+  - `min()` — Returns the minimum *positive* value (for floating-point types) or the smallest value (for integers).
+  - `lowest()` — Returns the lowest value the type can hold (useful for floating-point types, where `min()` isn’t the most negative value).
+  - `epsilon()` — For floating-point types, it returns the difference between 1 and the next representable value.
+  - `round_error()` — Returns the maximum rounding error for floating-point types.
+  - `infinity()` — Returns the representation of positive infinity (for floating points).
+  - `quiet_NaN()` — Returns a quiet NaN ("Not a Number") for floating points.
+  - `signaling_NaN()` — Returns a signaling NaN, which can raise an exception when used.
+  - `denorm_min()` — Returns the smallest positive *denormalized* value for floating points.
 
-  - **`max()`** — Returns the maximum representable value.
-  - **`min()`** — Returns the minimum *positive* value (for floating-point types) or the smallest value (for integers).
-  - **`lowest()`** — Returns the lowest value the type can hold (useful for floating-point types, where `min()` isn’t the most negative value).
-  - **`epsilon()`** — For floating-point types, it returns the difference between 1 and the next representable value.
-  - **`round_error()`** — Returns the maximum rounding error for floating-point types.
-  - **`infinity()`** — Returns the representation of positive infinity (for floating points).
-  - **`quiet_NaN()`** — Returns a quiet NaN ("Not a Number") for floating points.
-  - **`signaling_NaN()`** — Returns a signaling NaN, which can raise an exception when used.
-  - **`denorm_min()`** — Returns the smallest positive *denormalized* value for floating points.
+  Key static constants (all `constexpr`):
 
-  #### Key static constants (all `constexpr`):
-
-  - **`is_signed`** — `true` if the type can hold negative values, otherwise `false`.
-  - **`is_integer`** — `true` for integer types, otherwise `false`.
-  - **`is_exact`** — `true` if the type uses exact representations (like integers).
-  - **`has_infinity`** — `true` if the type can represent infinity.
-  - **`has_quiet_NaN`** — `true` if the type can represent quiet NaNs.
-  - **`has_signaling_NaN`** — `true` if the type supports signaling NaNs.
-  - **`is_bounded`** — `true` if the type has a finite range.
-  - **`is_modulo`** — `true` if the type wraps around on overflow (like unsigned integers).
-  - **`digits`** — The number of *base-2* digits the type can store.
-  - **`digits10`** — The number of *base-10* digits that can be safely represented without change.
-  - **`max_digits10`** — For floating-point types, the number of decimal digits needed to uniquely represent all distinct values.
-  - **`radix`** — The base of the representation (typically 2 for binary types).
-  - **`min_exponent`** — The smallest exponent for normalized floating-point numbers.
-  - **`max_exponent`** — The largest exponent for floating points.
-  - **`min_exponent10`** — The smallest power of 10 for normalized floating points.
-  - **`max_exponent10`** — The largest power of 10 for normalized floating points.
-  - **`has_denorm`** — Indicates whether the type supports *denormalized numbers*.
-  - **`has_denorm_loss`** — Indicates if a loss of precision occurs when converting to a denormalized value.
-  - **`traps`** — `true` if arithmetic operations can trigger exceptions.
-  - **`tinyness_before`** — For floating points, checks if *underflow* is detected before rounding.
-  - **`round_style`** — An enum indicating the rounding style (like nearest, towards zero, etc.).b
+  - `is_signed` — `true` if the type can hold negative values, otherwise `false`.
+  - `is_integer` — `true` for integer types, otherwise `false`.
+  - `is_exact` — `true` if the type uses exact representations (like integers).
+  - `has_infinity` — `true` if the type can represent infinity.
+  - `has_quiet_NaN` — `true` if the type can represent quiet NaNs.
+  - `has_signaling_NaN` — `true` if the type supports signaling NaNs.
+  - `is_bounded` — `true` if the type has a finite range.
+  - `is_modulo` — `true` if the type wraps around on overflow (like unsigned integers).
+  - `digits` — The number of *base-2* digits the type can store.
+  - `digits10` — The number of *base-10* digits that can be safely represented without change.
+  - `max_digits10` — For floating-point types, the number of decimal digits needed to uniquely represent all distinct values.
+  - `radix` — The base of the representation (typically 2 for binary types).
+  - `min_exponent` — The smallest exponent for normalized floating-point numbers.
+  - `max_exponent` — The largest exponent for floating points.
+  - `min_exponent10` — The smallest power of 10 for normalized floating points.
+  - `max_exponent10` — The largest power of 10 for normalized floating points.
+  - `has_denorm` — Indicates whether the type supports *denormalized numbers*.
+  - `has_denorm_loss` — Indicates if a loss of precision occurs when converting to a denormalized value.
+  - `traps` — `true` if arithmetic operations can trigger exceptions.
+  - `tinyness_before` — For floating points, checks if *underflow* is detected before rounding.
+  - `round_style` — An enum indicating the rounding style (like nearest, towards zero, etc.).b
 
 So, to clarify:
 
 - **It is not a function.**
 - **It is a class template.**
-- **It is not an object** — you don’t create instances of it; you just use its static members directly.
+- **It is not an object** — I did’t create instances of it; I just use its static members directly.
 
+### String Pre-learning 
+* **What is buffer ->** A **sequential section of memory allocated to contain data**, such as a character string or an array of integers. It is essentially **an temporary storage area** for **data that is being processed or transferred.**
 
+* **What is buffer overflow ->** When a program writes more data to a buffer that it can hold. This excess data overflows into adjacent memory, potentially corrupting other variables or program structures. 
 
+* **Who fixed or regulated the size of buffer ->** In C, the size of a buffer is determined by the programmer at the time of allocation. We mujst decide how much memory to allocate for the buffer based on the expected size of the date it will hold. This decision directly affects the buffer's capacity.
+  
+  ```C
+  #include <stdio.h>
+  
+  int main() {
+      // Decision point: How much memory to allocate for the user's name?
+      char name[50]; // Buffer size of 50 characters
+  
+      printf("Enter your name: ");
+      scanf("%49s", name); // Read up to 49 characters to leave space for the null terminator
+      printf("Hello, %s!\n", name);
+  
+      return 0;
+  }
+  ```
+  * **Buffer:** name is the buffer here, which is an array of characters.
+  * **Size**: The size of the buffer is 50 characters (char name[50];).
+  * **Decision**: The programmer decides to allocate 50 characters for the buffer based on the expected length of the user's name. This decision is critical because it determines how much data the buffer can safely hold.
+  
+* **Why C Strings are prone to buffer overflows ->** C strings are arrays of characters terminated by a null character (`'\0'`). When working with C strings, we often need to manually manage memory and ensure that data does not exceed the allocated buffer size. This manual management can lead to errors, such as buffer overflows, if not handled carefully
 
+* C strings are arrays of characters terminated by a null character (`'\0'`). 
 
-### Class Template
+  ```c
+  // String literal - a sequence of characters enclosed in double quotes 
+  // Use String Literral to declare and initialise a character array to create a string
+  // When we declare it
+  // Compiler conuts the characters in the string literal
+  // including the null terminator
+  // And allocates an array of that size
+  // Stored as: 'A','l','i','c','e','/0'
+  char greeting[] = "Alice";
+  
+  // In that case we specify the size of the array explicitly
+  // The string "Hello World!" will be copied into this array, and the remaining characters will be initialised to zero("\0");
+  // Static allocation, stored on stack
+  char explicitstring[20] = "Hello World!"; 
+  
+  // Careful
+  // Dynamic allocation
+  // On read-only memory, immutable
+  char* string_literal = "YOLO";
+  ```
+  ​	**Dynamic Allocation**: `char* string_literal = "YOLO";` declares a pointer to a string literal. The string literal is stored in read-only memory, and `name` points to it.
 
-**Class template** means it’s a class that takes a type as a parameter, like this:
+* Ways of C++ String creation
 
-```cpp
-template <typename T> class numeric_limits;
-```
+  ```cpp
+  #include <iostream>
+  #include <string>
+  
+  using namespace std;
+  
+  int main(){
+  	string greeting = "Hello World!";
+  	cout << greeting << endl;
+  	return 0;
+  }
+  ```
+  without `using namespace std;`	
+  ```cpp
+  #include <iostream>
+  #include <string>
+  
+  int main(){
+    std::string greeting = "Hello World";
+    std::cout << greeting << std:endl;
+    return 0;
+  }
+  ```
 
-```cpp
+* ## **Key Differences Between C and C++ `getline()`**
 
-```
+  | Feature         | C                                          | **C++**                          |
+  | :-------------- | :----------------------------------------- | :------------------------------- |
+  | **Header**      | `<stdio.h>`                                | `<iostream>` + `<string>`        |
+  | **Memory**      | Manual (`malloc`/`free`)                   | Automatic (`std::string`)        |
+  | **Buffer**      | Requires `char**` + `size_t*`              | Uses `std::string`               |
+  | **Safety**      | Risk of leaks if not freed                 | No leaks (RAII)                  |
+  | **Delimiter**   | Always `\n` (hardcoded)                    | Customizable (`'\n'` by default) |
+  | **Return**      | `ssize_t` (bytes read or `-1`)             | Returns stream reference         |
+  | **Portability** | POSIX (Linux/macOS), not always in Windows | Standard C++ (works everywhere)  |
+
+  C-style `getline()` example
+  ```c
+  #include <stdio.h>
+  #include <stdlib.h>  // For free()
+  
+  int main() {
+      char *line = NULL;
+      size_t len = 0;
+      ssize_t read;
+  
+      printf("Enter a line: ");
+      read = getline(&line, &len, stdin);  // Reads from stdin
+  
+      if (read != -1) {
+          printf("You entered: %s", line);
+      }
+  
+      free(line);  // Must free allocated memory!
+      return 0;
+  }
+  ```
+
+  C++ rules of using `getline()`
+  ```cpp
+  #include <iostream>
+  #include <string>
+  
+  int main() {
+      std::string line;
+  
+      std::cout << "Enter a line: ";
+      std::getline(std::cin, line);  // Reads until '\n'
+  
+      std::cout << "You entered: " << line << std::endl;
+      return 0;
+  }
+  ```

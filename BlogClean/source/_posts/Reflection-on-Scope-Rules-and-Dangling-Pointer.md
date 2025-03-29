@@ -223,7 +223,7 @@ From the compiler's perspective, both fixed-size arrays and dynamic arrays are i
 
 
 
-## Pointer and Memory Block It Refers to
+## Pointer Persistence v.s. Memory Deallocation
 
 Deleting the memory block a pointer refers to (using `delete` or `delete[]`) does **not** destroy the pointer variable itself. The pointer still exists, but the memory it points to has been deallocated. Accessing this memory after it’s been freed results in **undefined behaviour**.
 
@@ -303,7 +303,7 @@ int main(){
 }
 ```
 
-### Dangling Pointer
+## Dangling Pointer
 
 A dangling pointer refers to a pointer that continues to reference a memory location that has already been deallocated or no longer valid.
 
@@ -311,4 +311,4 @@ A dangling pointer refers to a pointer that continues to reference a memory loca
 2. **Local Variable Out of Scope**: When a pointer points to a local variable, and the scope of that local variable ends, the pointer becomes dangling.
 3. **Returning Address of Local Variable**: When a function returns the address of a local variable, the local variable is destroyed when the function ends, making the returned pointer invalid
 
-The dangling pointer in my program led to deallocation crash.
+The dangling pointer in my program led to deallocation failure crash.
