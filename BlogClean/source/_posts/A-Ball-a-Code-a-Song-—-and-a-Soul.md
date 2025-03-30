@@ -6,7 +6,7 @@ categories:
 tags: 
 - Journal
 - Overthinking Therapy
-excerpt:"I am too..."
+excerpt: I am too...
 ---
 
 Ngl, just like what I said to Ghayur - there must be some kind of "bleed link"...
@@ -17,7 +17,7 @@ What a coincidence - we bumped into each other again two days later at the Unive
 
 Today after the basketball, we just talked crap about engineering grad life and the future. On the way back home, we discussed the DeepSeek's optimisation and how minorities are doing in Engineering Industry these days in US MAGA trend. Ngl, "bleed link" triggered - LOL. We found out he lives in Fratton too... Damn, Ghayur had just told me that people attract people with same stress level and background LOL.
 
-Sometimes you feel like it is impossible to make new friend anymore - especially after leaving campus. It's just like next stage of life, one where without new friends and your people.  When you are on campus, you always have your go-to spots, and naturally bump into people who share your interests,vibes and even personality. That's how friendships spark. Then it perhaps ends up with you guys becoming friends. I just feel too old to meet new people.
+Sometimes you feel like it is impossible to make new friend anymore - especially after leaving campus. It's just like next stage of life, one where without new friends and your people.  When you are on campus, you always have your go-to spots, and naturally bump into people who share your interests,vibes and even personality. That's how friendships spark. I just feel too old to meet new people.
 
 Xu was on his Easter holiday couple of weeks ago, which means he's in China right now. Furthermore, there is only 3 months left for his postgrad journey. After that, he'll definitely go back and run into his next stage - marry his girl and take over the family business. I may not go Coventry again after that, who knows. We won't see each other for at least next ten years. 
 
@@ -45,7 +45,7 @@ I’m really grateful for this series of beautiful coincidences that helped me m
 
 When AJ and I were walking home this afternoon, he was venting about job rejections and pre-graduation pressure — I could relate 120%. He said he has no idea where he’ll go next, just wherever there’s work.
 
-When we speak different languages, I still feel like only AJ and Rahdev truly understand me — my situation, my emotions. Maybe it’s because we all study engineering and aren’t part of the majority here. Natt once said:
+When speaking without mother tongue, I feel like only AJ and Rahdev truly understand me — my situation, my emotions. Maybe it’s because we all study engineering and aren’t part of the majority here. Natt once said:
  *“If Europe and the UK fall one day, the reason will be arrogance.”*
 
 I get it now — it’s a kind of thoughtless, entitled arrogance. Some people have fixed, simplistic ideas about people and places they’ve never truly known. Their surface-level ‘respect’ and ‘liking’ is just a shell — the core is a kind of quiet prejudice. It’s not in words or actions, but you can feel it in the vibe.
