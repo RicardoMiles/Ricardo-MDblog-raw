@@ -4,12 +4,9 @@ date: 2025-03-26 17:15:31
 tags:
  - CS Learning
  - CPP
- - LeetCode
  - Vocabulary
  - English Learning
  - SLA
- - Data-Struct
- - Algorithm
 categories:
  - Coding
 excerpt: "Reflection on pointer reassignment bug. Related with Scope Rules in C++, Dangling Pointer concept and `sizeof()`/`size()` function."

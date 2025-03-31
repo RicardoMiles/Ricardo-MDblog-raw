@@ -7,7 +7,7 @@ tags:
  - SLA
 categories:
  - Coding
-excerpt: "Debugging Log 1"
+excerpt: "Debugging Log"
 ---
 
 When working with Python's standard input (`stdin`), handling multi-line user input seems straightforward—until I run into unexpected behavior on Windows. Recently, I encountered an intriguing problem where ending input with `Ctrl+Z + Enter` required *double* confirmation to properly trigger an EOF (End-of-File) condition. This post details the debugging journey, mistakes made, lessons learned, and the final solution.
