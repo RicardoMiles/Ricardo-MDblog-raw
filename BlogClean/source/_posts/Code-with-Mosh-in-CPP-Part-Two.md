@@ -717,27 +717,270 @@ int main(){
 
 ### **C Strings v.s. C++ Strings**
 
+string typr is not part of C++ language itself, it's part of the standard library 
 
+* legacy C plus plus code, C string is char array, so all the issues array have have the possibility of occurring 
+* The last character of C style strings is always '\0' - Null Terminator
+* C++ string type optimises memory usage dynamically
+* we can access individual characters by index cuz we are working with array
+* single character enclosed by single quotes is so-called "character literal"
+* We can not combine two c-style string by `+` operator like we do with C++ string objects 
+* We can not compare c-style string by `==`  operator
+* We can not copy c-style string by `=` assignment 
+* The comparison of two strings in C is indeed determined by the first differing character when using the `strcmp` function. The `strcmp` function compares the strings character by character, starting from the first character of each string. It continues comparing subsequent characters until it finds a pair of characters that differ or until it reaches the null terminator (`'\0'`) of both strings.
+
+Two ways to initialise a C style string
+
+```cpp
+// Use curely braces and type a bunch of characters
+// Last character should always be back slashs zero 
+char name[5] = {'J','a','z','z','\0'};
+
+// Use string literal to initialise
+// String literal is a sequence of characters enclosed with double quotes
+// In this case, null terminator was automaticallly added by default 
+char name[5] = "Jazz";
+
+// C style way to get string size
+#include <cstring>
+int string_size = strlen(name);
+// It is gonna return 4, cuz the function will count until it faces the null terminator
+
+char greet[] = "WYD";
+// cat is short for Concatenate(combine)
+// Both two parameters for it are char pointers
+// The second one is constant char pointer
+// So nothing is gonna be modified 
+// The function take second argument and added it to the first argument
+strcat(name,greet);
+cout << name;
+// It should be "JazzWYD"
+// After combination the array size is go beyond defined size 
+// In order to avoid nasty bugs in more complicated situation
+// We should give this array more capacity 
+// Let us say char name[50]
+
+// Copy one string to another
+// Taking  the second argument and copy it to first argument
+// name is overwritten by greet
+strcpy(name, greet);
+cout << name;
+// It should be "WYD"
+// But if the first argument is not large enough 
+// To contain the second argunment 
+// We are gonna go exceed the boundary of array
+// Run into a part of memory that we are not supposed to  
+
+// Both of the parameters are const char pointer
+// return 0 when equal
+// if the first one comes before second one alphabetically, it returns negative value
+// if the first one comes after second one alphabetically, it returns positive value
+if (strcmp(name,greet) == 0){
+  cout << "Equal" << endl;
+}
+ 
+```
+
+C++ string
+
+* It is a class, internally it uesed C style string to implement. Instances of this class, we call it string objects
+* Each of the obeject got lots of functions we can access by `.` Operator 
+* Instead of `strcat()`, we can use `+` operator
+* Instead of `strcpy()`, we can declare another string object , and simplty set it to another string  
+* Instead of `strcmp()`, we can simply use `==` operator to compare two string 
+* `string.starts_with()` can check if the string starts with string or character, return `0` which means false, return `1` which means true; Same with `ends_with() `
+* `string.empty()` to check if it is an empty string 
+* `string.front()` to return the first character of string; similar function we call it back `string.back()` to return the last character of string 
+
+```cpp
+#include <iostream>
+#include <string>
+
+using namespace std;
+int main(){
+    string name = "Orchid";
+    name[0] = 'o';
+    cout << name.length();
+    // It should be 6
+    
+    name += "Walking Artist";
+  
+    string another = name;
+  
+    if(name == another){
+        cout << "Same";
+    }
+    
+    // Equivalent ways to get last char from string
+    char last_char = name[name.length()-1];
+    char last_char = name.back();
+  
+    return 0;
+}
+```
 
 ### **Modifying Strings**
 
-
+* `string.append("string literal")` to add another string into the end of `string`
+*  `string.insert( 0 , "string literal")` to insert string to the accurate part of another string , `0` is an example index
+* `string.erase(0,2)`, method for erasing characters from string, exam ple shown formerly means that erasing `2`characters starts from index`0`
+* `string.clear()` function to set our string to an empty string
+* `string.replace(0,2,"MO")` replacing 2 characters from index `0`, wih string literal `‘M’` and `'O'`
 
 ### **Searching Strings**
 
+* `string.find()` with this function we can find the position of  first ocurrence of some content in this string
+*  Just like all string operation, `string.find()` is case-sensitive.
+*  If this methor can't find the position, it will return the largest value we can store in `size_t` type cuz `size_t` couldn't store negative values, actually it is `-1`, compare the failure result of `string.find()` with `-1`, we will get `==` true 
+* `string.rf()`, rf is short for reverse_find , it starts search from the end 
+* `string.find_first_of("string") ` we can check any of characters in passed string (we passed to the function) position in searched string, examples below 
 
+```cpp
+string name = "Kristiannea";
+name.find('a');
+// We are going to see 6
+name.find('a',7);
+// Pass one extra argument as searching start position
+// Our searching is going to start at position 7
+// This is gonna return next 'a' position as  10 
+
+name.rf('a');
+// We get 10
+name.find_first_of("azw");
+// it will return 6, it returns the first occurence position of char in passed string
+name.find_last_of("azw");
+// same as find_first_of function, but search starts from last element
+name.find_first_not_of("azw");
+// Return the first char in searched string that not any of char in given&passed string
+// In our case, it is 'K'.
+// Return 0
+name.find_last_not_of("azw");
+// return the last element not any of "azw"
+// in this case 
+// return 9, which is 'e '
+ 
+```
 
 ### **Extracting substrings**
 
+* `string.substr()` has two parameters: both of them are `size_t` numbers, first one is starting position, second one is the length of substring, but both of them are optional
+*  if we call this `string.substr()` without any arguments, we get a full copy of this string
+* if only one number is given as arguments like `string.substr(5)`, it will comprehended as starting postion, then return the rest of string from index  `5`
 
+### **Working with Characters**
+
+* `islower()` can check a character lower or not 
+
+  ```cpp
+  string name = "Ricardo";
+  cout << islower(name[0]) << endl;
+  // output with 0 cuz 'R' is capitalised 
+  cout << isupper(name[0]) << endl;
+  // output with 1 cuz 'R' is capitalised
+  ```
+
+* `isupper()`  check a character upper or not
+
+* `isalpha()` returns True if this character is alphabetic from a to z no matter captilised or lower-cased 
+
+* `isdigit()`  returns True if we pass digit character to it
+
+* `isspace()` chck a character whitespace or not 
+
+* `toupper()` convert lower case character into uppercase ones
+
+* `tolower()` convert upper case character into lowercase ones
+
+* if we give `tolower()` a character non-alphabetic like a dash `-`, it returns the character itself `-`
+
+  ```cpp
+  string name = "Ricardo";
+  cout << (char) tolower(name[0]) << endl;
+  // C style cast
+  // Without casting we will get ascii value of 'r'
+  ```
+
+* Please test each edge case and consider each senario
 
 ### **Converting Strings to Numbers and Vice Versa**
 
+* User input is always string
+* `stod()` string to double
+* `stoi()` string to integer
+* `stof()` string to float
+* `stol()` string to long 
 
+```cpp
+// The function always does its best to convert string to numbers
+string price = "19.99x";
+stod(price);
+// We will get 19.99
+string price = "19.x99";
+stod(price);
+// We will get 19
+string price = "x19.99";
+stod(price);
+// Program will crashed due to exceptionm
+```
 
+* `to_string()` function is overloaded, so it takes int, long, double ...
 
+### **Escape Sequences**
 
+* Back slash has a special meaning in string 
+* Type two back slash `\\` in order to represent a single `\` in string, it is an escape sequence 
+* `\"` double quotation 
+* Type a back slash to escape the following character 
+* `\n` a newline, `\t` a tab, there is no limitation of how much `\n` or`\t` we can use in a string
 
+```cpp
+string greet = ""Hello World"";
+// Compilation error
+// The second double quote does not be identified as character
+```
+
+`""` be taken as the string literal, and the rest - `Hello World""`, is taken as garbage value
+
+### **Raw Strings**
+
+We can use raw string to raise code readability instead of escaping sequences, we just need type a `R` followed by a pair of parentheses wrapped by double quote `R"()"`, inside the parentheses, we can put raw string without the need of escaping any characters
+
+```cpp
+// Equivalent code
+string path = "\"C:\\Users\\Administrator\\Desktop\"";
+string path = R"(C:\Users\Administrator\Desktop)";
+```
+
+What we see in the parentheses is exactly what we are gonna show to the user, code is readable, cleaner and easier to understand.
+
+### **Defining Structures**
+
+* With structures we can define custom date type, in Computer Science we call it ADT - Abstract Data Type
+* Abstraction - which is A general model of something
+
+```cpp
+// PascalCase Naming Convention to name a struct
+// Capitalise every word
+struct Movie{
+    string name;
+    int releaseYear;
+};
+// with this defination we are not  allocating any memory for these variable 
+// We are simply telling compiler that Movie structure consists of 
+// These variables
+
+int main(){
+    // We declare a object
+    // Object means an instance of a type 
+    Movie movie;
+    // access member of object by dot operator
+    movie.name = "Harry Potter"; 
+  
+    return 0;
+}
+```
+
+ 
 
 ## My Practice Feedback
 
