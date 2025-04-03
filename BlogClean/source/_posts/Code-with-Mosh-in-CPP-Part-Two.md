@@ -980,7 +980,122 @@ int main(){
 }
 ```
 
- 
+### **Initialising Structure**
+
+``` cpp
+struct Movie{
+    string name;
+    int releaseYear;
+    bool isPopular
+};
+
+int main(){
+    Movie movie;
+    cout << move.releaseYear;
+    // We will get junk value without initialising
+}
+```
+
+Whenever we create an instance of an structure, it is always good practice to initialise its members , type an equl sign followed by a bracket, in this bracket we provide members in order `Movie movie = {"Terminator",1984, true};`, first value would be assigned to the `name`,  and second will be assigned to `releaseYear`. 	
+
+We can leave some member with un-intialised, like `Movie movie = {"Terminator"};` , then the `releaseYear` and `is Popular` will leave to unintilised, but we can't skip one of member and directly assign next one like`Movie movie = {"Terminator",true}`. It will lead to compilation error, cuz true can't be assigned to `int releaseYear`.
+
+We can give members of struct a default value when we define a struct in order to avoid initialisation when use its objects. For string members we don't need default initialising when declare a struct, cuz by default it was initialised into a empty string. This doesn't cause any harm.
+
+boolean variables by default are `faulse`, converntion & better practice.
+
+### **Unpacking Structures**
+
+In some senario, we need to unpack the members of structure object and separate them into individual variables. In C++, we call it structure binding; in JS, we call it de-structuring; in Python, we call it to unpacking;
+
+* Declare different separated variables to hold members - One Way
+* Use `auto` keyword and square brackets to hold variables and curely brackets to hold object as shown below
+
+```cpp
+struct Movie{
+    string title;
+    int releaseYear = 0;
+    bool isPopular = false;
+}
+int main(){
+    Movie movie = {"Terminator",1984,true};
+    string title = movie.title;
+    int releaseYear = movie.releaseYear;
+    bool isPopular = movie.isPopular;
+  
+    // Identical equivalent
+    // The variables in square brackets is mandatory
+    // and should be organised in order
+    auto [title,releaseYear,isPopular] { movie };
+    
+}
+```
+
+### **Array of Structures**
+
+```cpp
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+int main(){
+    // vector type is generic
+    // So it could work with different data type
+    // specify the object type we wanna store in vector by angle brackets
+    vector<Movie> movies;
+    Movie movie = {"Terminator",1984,true};
+    movies.push_back(movi  by passing a brace initialiser
+    // bc vector is generic, so it knows what we are gonna store in it
+    // this method is gonna interpret this brace initialiser as a Movie object
+    movies.push_back({"Terminator",1984,true}); 
+    movies.push_back({"Shinjiku Event",2000});
+    // acess it like a normal array
+    cout << movies[0].title << endl;
+    cout << movies[1].title << endl;
+    // we can also use range_based loop
+    for(auto movie:movies){
+        cout << movie.title << endl;
+    }
+                     
+    // More efficient way : pass constant reference instead of copy
+    for(const auto& movie: movies){
+        cout << movie.title << endl;
+    }
+     
+    return 0;
+}
+```
+
+* By `vector.push_back()` we can add an object by the end of the vector
+
+### **Nesting Structures**
+
+* We can nest a stucture with another structure
+
+```cpp
+struct Date{
+    short year = 1900;
+    short month = 1;
+    short day = 1;
+};
+
+struct Movie{
+    string title;
+    Date releaseDate;
+    bool isPopular;
+}
+
+int main(){
+    Date date = {1984,6,1};
+    Movie movie = {"Terminator",date};
+    // List way to initialise
+    Movie movie = {"Terminator",{1984,6,1}};
+    return 0;
+}
+```
+
+### **Comparing Structures**
 
 ## My Practice Feedback
 
