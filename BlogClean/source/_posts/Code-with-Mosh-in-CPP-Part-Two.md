@@ -1365,11 +1365,226 @@ But the strongly typed enums are lack of ability that implicitly convert member 
 
 ## What streams are
 
-## Standard input/output streams
+Using `cout` we can write something to console or terminal, but in real-world programming we read or write data to a variety of sources including 
 
-## ﻿﻿Read from and write to files
+* Terminal
+* File
+* Network
+* ……
 
-## ﻿﻿Difference between binary and text files
+C++ standard library has been designed in such a way that we can work with all these data sources the same way. And this is where streams come in the picture.
+
+We can think of a stream as a data source or destination, we have lots of different streams, but all of them have the same interface. They have same functions and we can work with them the same way
+
+* istream
+* ostream
+* ifstream
+* ofstream
+* istringstream
+* ostringstream
+
+ All of the stream inherited things from `ios` class, `ios` inherited from `ios_base`. So they got same interface, we can work with them same way.
+
+## **Writing to Streams**
+
+Use insertion operator we can write data to `cout` - represents the standard output stream
+
+`cout` is an object, the type of that object is `ostream`, so `cout` is an instance of output stream class
+
+In C++, the `put` function is a member of the `ostream` class and is used to output a single character to the stream. It is typically used with output streams like `std::cout` or file streams. Here's how we can use `put` with output objects: 
+
+```cpp
+#include <iostream>
+
+int main() {
+    // Output a single character using put
+    std::cout.put('H');
+    std::cout.put('e');
+    std::cout.put('l');
+    std::cout.put('l');
+    std::cout.put('o');
+    std::cout.put('\n');
+
+    return 0;
+}
+```
+
+This will output:
+
+```bash
+Hello
+```
+
+Its signature looks like
+
+```cpp
+ostream& put(char c)
+// it returns an ostream object(by reference)
+```
+
+Another function `write()` signature
+
+```cpp
+ostream& write(char* s, streamsize n);
+// s means a block of data
+```
+
+Operator `<<` have lots of overload with different built-in data type, it also means we can overload it for our own data type and structure a `<<` operator.  
+
+## Reading from Streams
+
+```cpp
+int main() {
+    cout << "First: ";
+    int first; 
+    cin >> first;
+
+    cout << "Second: ";
+    int second; 
+    cin >> second;
+    cout <<
+    "You entered " << first<< " and " << second;
+  
+    return 0;
+} 
+```
+
+If user input something with whitespace at the first time, program will skip the second waiting for user input. Like shown below, program didn't pause to capture the second input  
+
+```bash
+MoshCPP % ./BufferException
+First: 10 20
+Second: You entered 10 and 20%   
+```
+
+**All of the streams have a buffer** - a temporary storage in memory for reading values. 
+
+* When we read something from user's input, what user entered firstly goes into the buffer. 
+* In this case, "10 20" goes into buffer, buffer was like [10 20]
+* Then, `cin` is gonna read things from buffer, rule and habbit of it to read is reading until it gets to whitespce
+* So, in this case, `cin` extract `10` from the buffer and converted it into a number for storing it in `first` 
+* Then buffer is gonna look like this `  20` 
+* Then our program print `"Second:"` info
+* When we go to `cin >> second` , because the buffer is not empty, `cin` will directly read the rest thing in the buffer
+
+All of the input streams have a method to clean the buffer called `cin.ignore()` (`cin` could be another input stream), `ignore()` has two parameters but both are optional because they have default value. First is `streamsize n`  , which represents the character number to ignore, second is `int_type dlm` dlm is short for delimiter,  that is the character we are looking for. For example
+
+```cpp
+cin.ignore(10,'\n');
+// Hey, ignore the next 10 chracters
+// Until you see newline character 
+```
+
+Use `10` as the parameter is not good practice, we should use the largest number we can pass to the function in order to make sure everything is cleared properly.
+
+The way we can find the largest value of `streamsize` Type is using the `numeric_limits<streamsize>::max()`
+
+Then our program is like below
+
+``` cpp
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    cout << "First: ";
+    int first; 
+    cin >> first;
+    cin.ignore(numeric_limits<streamsize>::max(),'\n');
+
+    cout << "Second: ";
+    int second; cin >> second;
+    cout <<
+    "You entered " << first<< " and " << second;
+  
+    return 0;
+} 
+```
+
+The execution will be like
+
+```bash
+MoshCPP % ./BufferException                          
+First: 10 20
+Second: 30
+You entered 10 and 30 
+```
+
+## **Handling Input Error**
+
+The pattern and logic for handle input error is :
+
+* Create a infinite loop to check the input failure.
+* If it failed -> 
+  * Output Error Info
+  * Clear the failure state and clean the buffer
+  * Infinite loop will go on to give user another chance to input 
+* If it succeeded
+  * Break the infinite loop
+  * Continue to the rest part of program
+
+```cpp
+int first;
+while(true){
+  cout << "First:";
+  cin >> first;
+  if(cin.fail()){
+    cout << "Invalid Number!"
+    cin.ignore(numeric_limits<streamsize>::max(),'\n');
+    cin.clear();
+  }else{
+    break;
+  }
+}
+```
+
+My try for reusable pattern implementation
+
+```cpp
+int errorHandler(string givenTrial){
+    int currentValue;
+    while(true){
+        cout << givenTrial << ": ";
+        cin >> currentValue;
+        if(cin.fail()){
+            cout << "Invalid Value!" << endl;
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(),'\n');
+        }else{
+            break;
+        }
+    }
+    return currentValue;
+}
+```
+
+Mosh's version
+
+```cpp
+// Pass reference for efficiency
+// Make it const for security
+int getNumber(const string& prompt) {
+    int number;
+    while (true) {
+        cout << prompt; cin >> number;
+        if (cin.fail()) {
+            cout << "Enter a valid number!" << endl;
+            cin.clear ();
+            cin.ignore(numeric_limits<streamsize>::max(),'\n');
+        }else{
+            break;
+        } 
+    }
+}
+```
+
+## **File Streams**
+
+* `ifstream` short for input file stream - use it to read data from file
+* `ofstream` short for output file stream - use it to write data to a file 
+* `fstream` short for file stream - combine both of two above functionalities
+
+## Writing to Text Files
 
 ## ﻿﻿Convert a value to a string
 
