@@ -1097,6 +1097,284 @@ int main(){
 
 ### **Comparing Structures**
 
+* We can't compare two structure's objects for equality like `if(movie1 == movie2)`, it leads to compilation error. Because equlity operator is not defined for structures
+*  In order to compare the equality of structure objects, we have to compare their individual members
+
+### **Working with Methods**
+
+* Everywhere in Java with `this.member` in structure's method members defination, in C++ `this.` should be omitted. Current object's member can be processed without explicitly saying `this.member`
+* Instead of pass our method a copy of variable like pass some argument directly like variable `void compare(Movie another)`, we can pass it by reference `void compare(Movie& another)`. But be careful, add`const` before the reference cuz everything can be change by reference/ pointer. `void compare(const Movie& another)` would be a better practice make improvement on both security and efficiency. 
+*  A **method** is a **function** that is **part of an object** which can be an instance of a struct or class
+
+### **Operator Overloading**
+
+* Each operator is essentially a function
+* We have to type `const` by the end of operator overload defination in struct, because we have to make sure our current object's members can't be changed either.
+
+```cpp
+struct Date{
+    short year = 1900;
+    short month = 1;
+    short day = 1;
+};
+
+struct Movie{
+    string title;
+    Date releaseDate;
+    bool isPopular;
+  
+    bool operator==(const Movie& another) const{
+        return(title == another.title &&
+               releaseDate.year == another.releaseDate.year &&
+               releaseDate.month == another.releaseDate.month &&
+               releaseDate. day == another.releaseDate.day
+        );
+    }
+};
+
+// Another way to overload operator is outside a structure definition
+// We can remove the const at end of declaration
+// cuz we pass to const reference to our function 
+bool operator==(const Movie& one,const Movie& another){
+    return(one.title == another.title &&
+           one.releaseDate.year == another.releaseDate.year &&
+           one.releaseDate.month == another.releaseDate.month &&
+           one.releaseDate. day == another.releaseDate.day
+    );
+}
+
+```
+
+* Second approach better because some operator like stream insertion operator can only be overloaded outside structures; and it make more sense like we are comparing two object. 
+* Some operator should be overloaded as non-member functions, search rules on C plus plus reference
+
+```cpp
+// ostream is short for output stream 
+// return it as reference for performance concern
+// stream can be cout, also can be files
+// streamOne here is just an abstraction
+ostream& operator<<(ostream& streamOne, const Movie& movie){
+    streamOne << movie.title;
+    return streamOne;
+}
+
+int main(){
+    Movie movieOne = {"Terminator",{1986,1,1}};
+    cout << movieOne;
+    return 0;
+}
+```
+
+## **Structures and Functions**
+
+* We can use structure as function's parameter just like any other data type
+
+* We can also create functions that return structures
+
+  ```cpp
+  void showMovie(Movie& movie){
+      cout << movie.title << endl;
+  }
+  
+  Movie getMovie(){
+      return ("Terminator",{1984,1,1});
+  }
+  
+  int main(){
+      auto next = getMovie();
+      showMovie(next);
+      return 0;
+  }
+  ```
+
+## **Pointer to Structures**
+
+* Whenever we wanna pass object around, it's always better to use reference parameters as opposed to pointers, because they are much safer to work with
+* But we still have to learn how to pass objects using pointers
+* When we pass a structure pointer to our function, we just pass an adress - a number to our function
+* We can not directly use the dot operator, we have to use de-reference operater (a.k.a indirection operator)
+* Dot operator has higher priority than de-reference operator, so we have to wrap our `*pointerToStructure` with parentheses first, and then use dot operator like this `(*pointerToStructure).member `
+* When we call the function that use pointer to pass structure, we have use adress-of operator with object name to pass pointer(adress).
+* a hyphen followed by the greater-than operator `->` can simplify `(*pointerToStructure).member` , we can code like `pointerToStructure -> member`, this is called structure pointer operator . It automatically de-reference the pointer and give us access to member we specified.
+
+```cpp
+void showMovie(Movie* movie){
+    cout << (*movie).title << endl;
+}
+
+Movie getMovie(){
+    return ("Terminator",{1984,1,1});
+}
+
+int main(){
+    auto next = getMovie();
+    showMovie(next);
+    return 0;
+}
+
+// Using structure pointer operator
+void showMovie(Movie* movie){
+    cout << movie->title << endl;
+}
+
+Movie getMovie(){
+    return ("Terminator",{1984,1,1});
+}
+
+int main(){
+    auto next = getMovie();
+    showMovie(next);
+    return 0;
+}
+```
+
+## **Defining Enumerations**
+
+Another way to create custom type - Using Enumeration, we use it to represents a bunch of related constants
+
+```cpp
+int main(
+    // use constants to avoid magic numbers
+    const int list = 1;
+    const int add = 2;
+    const int update = 3;
+  
+	  cout <<
+        "1: List invoices" << endl<
+        "2: Add invoice" << endl <<
+        "3: Update invoice" << endl <<
+        "Select: ";
+    int input;
+    cin >> input;
+  
+    if(input == list){
+        cout << "List invoices";
+    }
+    if(input == add){
+        cout << "Add invoice";
+    }
+    if(input == update){
+        cout << "Update invoice";
+    }
+    
+    return 0;
+}
+```
+
+We can improve this code with Enumeration(a.k.a `enum`)
+
+keyword `enum` with variable name, followed by a pair of braces,followed by semicolon `enum Actions{}; `, inside the braces we using Pascal naming convention to declare its member and its own variable name. Members of enum separated by colon.
+
+Access member using `::` operator
+
+ ```cpp
+ enum Actions{
+     List,
+     Add,
+     Update
+ };
+ // By default List will be 0
+ // Add will be 1
+ // Update will be 2
+ // We can also assign this members' value explicitly
+ 
+ /*
+ enum Actions{
+     List = 1, 
+     Add = 2,
+     Update = 3
+ };
+ */
+ 
+ // We can also let compiler do the rest plusing one work for us
+ // Add and Update are gonna be the same as above
+ /*
+ enum Actions{
+     List = 1, 
+     Add ,
+     Update
+ };
+ */
+ 
+ // With enum we can get rid of constants above
+ int main( 
+ 	  cout <<
+         "1: List invoices" << endl<
+         "2: Add invoice" << endl <<
+         "3: Update invoice" << endl <<
+         "Select: ";
+     int input;
+     cin >> input;
+   
+     if(input == Actions::List){
+         cout << "List invoices";
+     }
+     if(input == Actions::Add){
+         cout << "Add invoice";
+     }
+     if(input == Actions::Update){
+         cout << "Update invoice";
+     }
+     
+     return 0;
+ }
+ 
+ ```
+
+## **Strongly Typed Enumerations**
+
+We can not define another enum with same members - different enums with same members. C++ 11 introduce a new feature to solve this - strongly typed enums. We just need to type  keyword `class` after the keyword `enum` and variable name. It allow different enums with same members with same values without name collisions.
+
+```cpp
+enum class Operations{
+   List=1,
+   Add,
+   Update 
+};
+enum class Actions{
+   List=1,
+   Add,
+   Update 
+}
+
+int main( 
+	  cout <<
+        "1: List invoices" << endl<
+        "2: Add invoice" << endl <<
+        "3: Update invoice" << endl <<
+        "Select: ";
+    int input;
+    cin >> input;
+  
+    if(input == static_cast<int>(Actions::List)){
+        cout << "List invoices";
+    }
+    if(input == static_cast<int>(Actions::Add)){
+        cout << "Add invoice";
+    }
+    if(input == static_cast<int>(Actions::Update)){
+        cout << "Update invoice";
+    }
+    
+    return 0;
+}
+
+```
+
+But the strongly typed enums are lack of ability that implicitly convert member into int. We have to do it when we compare its memeber with int. Use `static_cast<tartget_data_type>(current_variable)` to convert.
+
+## What streams are
+
+## Standard input/output streams
+
+## ﻿﻿Read from and write to files
+
+## ﻿﻿Difference between binary and text files
+
+## ﻿﻿Convert a value to a string
+
+## ﻿﻿Parse a string to extract values
+
 ## My Practice Feedback
 
 ### Garbage Value in Uninitialised Array & Misunderstanding of CPP auto-dealing
