@@ -1586,6 +1586,32 @@ int getNumber(const string& prompt) {
 
 ## Writing to Text Files
 
+We have to  `#include <fstream>` to write things to Text Files. We can also use string manipulators for formatting output, `#include <iomanip>` for use it, it is short for input-output-manipulator.
+
+```cpp
+    /*
+        The most basic pattern for work with file stream
+        
+    */
+    ofstream file;
+    // First argument is gonna be the file name
+    // If it does not exist, it is gonna be created
+    // Otherwise, its content is gonna be overwritten
+    file.open("Game2025.csv");
+    // We have to check to see if our file is opened successfully
+    if(file.is_open()){
+        // Just bc all the sream have same interface
+        // We can simply use insertion operatoer
+        file << "Game,Publisher,Year" << endl;
+        file << "Elden Ring,FromSoftware,2024" << endl;
+        file << "Persona 5 Royal,Sega,2024" << endl;
+        // close it after doing all changes
+        file.close();
+    }
+```
+
+
+
 ## ﻿﻿Convert a value to a string
 
 ## ﻿﻿Parse a string to extract values
