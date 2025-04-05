@@ -1588,10 +1588,13 @@ int getNumber(const string& prompt) {
 
 We have to  `#include <fstream>` to write things to Text Files. We can also use string manipulators for formatting output, `#include <iomanip>` for use it, it is short for input-output-manipulator.
 
+Call `setw(20)` function to set 20 characters space for the thing after next insertion operator like `file << setw(20) << "Hello" << setw(20) << "World" << endl;`
+
+Operating System Resources allocated for working with that file are not released if we don't do `file.close()` after writing something to a file
+
 ```cpp
     /*
         The most basic pattern for work with file stream
-        
     */
     ofstream file;
     // First argument is gonna be the file name
@@ -1610,9 +1613,43 @@ We have to  `#include <fstream>` to write things to Text Files. We can also use 
     }
 ```
 
+Use `\n` instead of `<< endl` for performance reason. What happened under the hood is : When we write something to the  output stream, the date is not directly written to the output stream, data get stored in a buffer. And then at some point the buffer is get flushed, and the content is get written to the output stream. The difference between `\n` and `endl` is `endl` always flushes the buffer.
+
+Flushing the buffer means immediately writing the data stored in the buffer to the target output stream and then clearing the buffer. 
+
+Trigger conditions: 
+
+* Buffer is full: When the data stored in the buffer reaches its capacity limit, the buffer will automatically flush. 
+
+* Explicit request from the program: Using `std::endl` or `std::flush` will force the buffer to flush. 
+* Program termination: When the program ends normally, the data in the buffer will also be flushed. 
+
+**Comparison:** 
+
+```cpp
+std::cout << "Hello" << std::endl; 
+std::cout << "World" << std::endl; 
+```
+
+1. First line: - `"Hello"` is written to the buffer. - `std::endl` forces the buffer to flush, `"Hello"` is written to the output stream (such as the screen), and the buffer is cleared. 
+2. Second line: - `"World"` is written to the buffer. - `std::endl` again forces the buffer to flush, `"World"` is written to the output stream, and the buffer is cleared. 
+
+```cpp
+std::cout << "Hello\n"; 
+std::cout << "World\n"; 
+```
+
+1. First line: - `"Hello\n"` is written to the buffer. 
+2. Second line: - `"World\n"` is written to the buffer. 
+3. Final flush: - When the buffer is full or the program ends, the **COMPLETE content** in the buffer (`"Hello\nWorld\n"`) will be written to the output stream all at once, and the buffer will be cleared. 
+
+**Key point:** When we use `\n`, the data in the buffer is not flushed immediately. However, it will be written to the output stream in an organized manner as we expect, without repetition or confusion.
+
+## **Reading from Text Files**
 
 
-## ﻿﻿Convert a value to a string
+
+## Convert a value to a string
 
 ## ﻿﻿Parse a string to extract values
 
