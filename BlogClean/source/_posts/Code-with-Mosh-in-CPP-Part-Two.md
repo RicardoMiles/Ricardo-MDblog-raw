@@ -1647,11 +1647,236 @@ std::cout << "World\n";
 
 ## **Reading from Text Files**
 
+The difference between `getline()` function and stream extraction operator:
 
+* The stream extraction operator reads all the characters until it finds a delimiter, the delimiter can be whitespace or newline`\n`, we don't get a entire row if one line in file have a whitespace
+* But the `getline()` function reads all characters until it finds back slash n (a newline )
+
+
+
+Use stream extraction operator to read something from our file
+
+``` cpp
+ifstream file;
+file.open();
+if(file.is_open(test.csv)){
+    string str; 
+    file >> str; 
+    cout << str << endl;
+    file.close(); 
+}
+/*
+   Things in the file "id,ti tle,year"
+   Things output in console "id,ti"
+*/
+
+```
+
+We have a method called eof which is short for end of file, then we can use it for detecting how many lines we should read
+
+```cpp
+ifstream file;
+file.open("test.txt");
+if(file.is_open()){
+    string str; 
+    getline(file,str);
+    while(!file.eof()){
+        getline(file,str); 
+        cout << str << endl;
+    }
+    
+    file.close();  
+}
+```
+
+`getline()` function has third parameters which is delimiter, if we use `getline(file,str, ",");`, this will read all the characters until it finds a comma.
+
+## **Writing to Binary Files** 
+
+Pass second argument to file stream constructor function to designate what mode our file is gonna store
+
+`ofstream file("numbers.bin",ios::binary)` use double colons after `ios` class, it means `binary` is a field or a constant defined in `ios` class 
+
+We call `file.write()` method to write, this function have two parameters: first is constant character pointer - address of data we want to read from memory and write to disk later ; second is the data's Byte size, always using `sizeof()` function to measure.
+
+Same data stores in binary files takes less disk space, each integer takes 4 Bytes of memory. For example, 
+
+`int numbers [] = {1000000,2000000,3000000};`  store in text files using for loop to add a new line after each number will take 24 Bytes of disk space because each digit is treated as character. 7 digits number plus invisible newline character equals to 8 character each line. A character takes 1 Byte in disk.
+
+While, using bianry mode to store them by `file.write(reinpret_cast<char*>(&number),sizeof(number));`, takes only 3 * 4 = 12 Bytes. Because each 7 digits number is treated as a int at all.
+
+```cpp
+#include <iostream>
+#include <fstream>
+
+using namespace std;
+
+int main(){
+    int numbers [] = {1000000,2000000,3000000};
+    ofstream file;
+    // We can chose .bin or .dat as extension
+    // bin -> short for binary
+    // dat -> short for data
+    // But always pass second parameter to inform open() method 
+    // Store this file in what mode
+    file.open("numbers.bin",ios::binary);
+    // ios is in
+    if(file.is_open()){
+        // We do the cast bc &numbers is int pointer
+        // write() method expect char*
+        file.write(reinterpret_cast<char*>(&numbers),sizeof(numbers));
+        file.close();
+    }
+    return 0;
+}
+```
+
+## **Reading from Binary Files**
+
+Reading from binray files is the opposite of writing:
+
+```cpp
+#include <iostream>
+#include <fstream>
+
+using namespace std;
+
+int main(){
+    int numbers[3];
+    ifstream file;
+    file.open("numbers.bin",ios::binary);
+    if(file.is_open()){
+        int number;
+        // We call the read() method with the same argument as write() method()
+        while(file.read(reinterpret_cast<char*>(&number),sizeof(number))){
+            cout << number << endl;
+        }
+        file.close();
+    }
+    return 0;
+}
+```
+
+We define `number` because we don't know where we should put our data in, and we also need a temporary thing to let the `file.read()` method know what is the size of `int`.
+
+* First argument is the memory place we need to load data to
+
+* Second argument is the size of data, determine how to extract date from file
+
+## **Working with File Streams**
+
+```cpp
+#include <iostream>
+#include <fstream>
+
+using namespace std;
+
+int main(){
+    fstream file;
+    file.open("file.text", ios::in | ios::out | ios::app);
+    // Right now we can open this file for both reading and writing
+    file.close();
+}
+```
+
+Specify one or more modes in second argument, add vertical bar `|` to add an extra mode;
+
+There is another mode called append `ios::app`, when we use `ios::out` if the file didn't exist we are gonna create it, if the file exists, we are gonna overwrite it. Use append mode to avoid overwriting
+
+We can also specify we open it in binary mode by `ios::binary`
+
+## String Streams
+
+* istringstream
+* ostringstream
+* stringstream
 
 ## Convert a value to a string
 
+`to_string()` function doesn't give us full control of specifying digits or anything else, it just defaultly convert number into string with 6 digit float formatting look. `#include <sstring>` to use string streams instead. `#include <iomanip>` to formatting.
+
+```cpp
+#include <iostream>
+#include <sstream>
+#include <iomanip>
+
+int main(){
+    double number = 13.14;
+    stringstream stream;
+    stream << fixed << setprecision(2) << number;
+    // We have a method to get the underlying string
+    string str = stream.str()
+    cout << str << endl;
+    return 0;
+}
+```
+
+We have full control over how this number is converted to a string
+
 ## ﻿﻿Parse a string to extract values
+
+```cpp
+int main() {
+    string str = "10 20";
+    stringstream stream; 
+    stream.str(str);
+    
+    int first;
+    stream >> first;
+  
+    int second;
+    stream >> second;
+    
+    return 0;
+}
+```
+
+We can use extraction operator to read, it is gonna read until the whitespace (just like how it works with cout); 
+
+When we need to DIY a delimiter like `','` instead of `>>`  's default newline or whitespace (Only these two, can't specify anything else) and `getline()`'s default newline, we can specify by third argument of `getline()`function.
+
+```cpp
+/*
+    Given the following string, write a function to parse this into a Movie structure.
+    "Terminator 1,1984"
+    Hints: Because there is whitespace in the string, so we can't use extraction operator
+    Use the getline() function to solve it
+*/
+
+#include <iostream>
+#include <string> 
+#include <sstream>
+#include <iomanip>
+
+using namespace std;
+
+struct Movie{
+    int year;
+    string title;
+};
+
+Movie parseMovie(string movieInfo){
+    stringstream movie_stream;
+    movie_stream(movieInfo);
+  
+    Movie movie
+    getline(movie_stream,movie.title,',');
+    stream >> movie.year;
+  
+    return movie;
+}
+
+int main(){
+    auto movie = parseMovie("Terminator 1,1984");
+    cout << "Movie title is: " 
+      << movie.title 
+      << ".\nMovie released year is: " 
+      << movie.year << ".\n";
+    return 0;
+}
+```
+
+
 
 ## My Practice Feedback
 
