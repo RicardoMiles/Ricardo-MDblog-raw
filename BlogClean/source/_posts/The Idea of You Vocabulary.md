@@ -10,210 +10,61 @@ tags:
 excerpt: Movie The Idea of You as language learning material
 ---
 
-
-##  Catches in watching stage
-
-alliance
-
-drop somebody off
-
-
-
-sandle
-
-stay hydrated
-
-kambucha
-
-
-
-seven grade
-
-
-
-on special occasions
-
-
-
-so epic
-
-
-
-in line
-
-take up time
-
-
-
-so hungover
-
-let my guard down
-
-
-
-come down
-
-finally comedown
-
-stop cold
-
-
-
-
-
-iconic
-
-on this iconic stage
-
-
-
-feel inspired
-
-I feel inspired
-
-
-
-that is profound
-
-
-
-inclusiveness
-
-
-
-sophomores
-
-
-
-split up
-
-broke up
-
-
-
-ceramics
-
-
-
-i will get all dealt with
-
-
-
-these took my fancy
-
-
-
-self portrait
-
-
-
-incredibly moving
-
-
-
-premed
-
-
-
-take courses for credits
-
-
-
-very random
-
-
-
-brooding poet
-
-
-
-boiling hot
-
-
-
-twerp
-
-he was just twerp
-
-
-
-for context
-
-
-
-open up to someone
-
-outgoing,very driven
-
-
-
-put our heads on
-
-there was a drift
-
-
-
-IT just not tell wholes story
-
-we just don't fit
-
-
-
-unevnentful
-
-
-
-art consultant
-
- mind-blowing
-
-on so mant levels
-
-hypocrisy
-
-it's over between us
-
-
-
-in my mid-20s
-
-
-
-keep this insanity with my wife
-
-
-
-when I go rogue
-
-耍无赖
-
-
-
-I am on my last legs
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+| Word / Phrase                            | Simple Meaning                                               | 中文意思                 | Example Sentence                                             | **Cambridge Dictionary &读音**                               |
+| ---------------------------------------- | ------------------------------------------------------------ | ------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| **alliance**                             | A group or agreement between people or groups to work together. | 联盟；结盟               | The two companies formed an alliance to share resources.     | [alliance](https://dictionary.cambridge.org/dictionary/english/alliance) |
+| **drop somebody off**                    | To leave someone at a place after driving them there.        | 送某人下车               | I’ll drop you off at the station before heading home.        | [drop off](https://dictionary.cambridge.org/dictionary/english/drop-off) (见“drop sb/sth off”) |
+| **sandal**                               | A type of open shoe with straps.                             | 凉鞋                     | She wore sandals to the beach because it was hot.            | [sandal](https://dictionary.cambridge.org/dictionary/english/sandal) |
+| **stay hydrated**                        | To keep drinking enough water to stay healthy.               | 保持水分充足             | Make sure to stay hydrated during the marathon.              | [hydrated](https://dictionary.cambridge.org/dictionary/english/hydrated) (见“stay hydrated”) |
+| **kombucha**                             | A fizzy drink made from fermented tea.                       | 康普茶                   | She drinks kombucha every morning for its health benefits.   | [kombucha](https://dictionary.cambridge.org/dictionary/english/kombucha) |
+| **seventh grade**                        | The year of school typically for 12-13 year-olds (US system). **The time that creates memories that you never want to remember.** | 七年级                   | He learned algebra in seventh grade.                         |                                                              |
+| **on special occasions**                 | During important or rare events.                             | 在特殊场合               | We only eat at that restaurant on special occasions.         | [occasion](https://dictionary.cambridge.org/dictionary/english/occasion) (见“special occasion”) |
+| **so epic**                              | Something very impressive or amazing (informal).             | 非常史诗般；很棒         | That concert was so epic, I’ll never forget it!              | [epic](https://dictionary.cambridge.org/dictionary/english/epic) |
+| **in line**                              | Waiting in a row or following rules.                         | 排队；符合               | We stood in line for hours to get concert tickets.           | [in line](https://dictionary.cambridge.org/dictionary/english/in-line) |
+| **take up time**                         | To use or occupy time.                                       | 占用时间                 | Studying for exams takes up most of my time.                 | [take up](https://dictionary.cambridge.org/dictionary/english/take-up) (见时间相关用法) |
+| **so hungover**                          | Feeling sick after drinking too much alcohol (informal).     | 宿醉得很厉害             | I was so hungover I couldn’t get out of bed all day.         | [hungover](https://dictionary.cambridge.org/dictionary/english/hungover) |
+| **let my guard down**                    | To stop being cautious and relax.                            | 放松警惕                 | I let my guard down and trusted him completely.              | [guard](https://dictionary.cambridge.org/dictionary/english/guard) (见“let your guard down”) |
+| **come down**                            | To return to normal after excitement or a high (informal).   | 恢复平静；下降           | It took hours for me to come down after the big game.        | [come down](https://dictionary.cambridge.org/dictionary/english/come-down) |
+| **finally come down**                    | To calm down or settle after a long time.                    | 终于平静下来             | She finally came down after the stress of finals.            | [come down](https://dictionary.cambridge.org/dictionary/english/come-down) (原拼写“comedown”有误) |
+| **stop cold**                            | To suddenly stop completely.                                 | 突然停止                 | He stopped cold when he heard the bad news.                  | [cold](https://dictionary.cambridge.org/dictionary/english/cold) (见“stop cold”) |
+| **iconic**                               | Very famous and well-recognized.                             | 标志性的                 | That building is an iconic symbol of the city.               | [iconic](https://dictionary.cambridge.org/dictionary/english/iconic) |
+| **on this iconic stage**                 | Performing or speaking at a famous or important place.       | 在这个标志性的舞台上     | She felt honored to perform on this iconic stage.            | 未直接列出，参考 [iconic](https://dictionary.cambridge.org/dictionary/english/iconic) |
+| **feel inspired**                        | To feel motivated or full of new ideas.                      | 感到鼓舞                 | I feel inspired to write after visiting the museum.          | [inspired](https://dictionary.cambridge.org/dictionary/english/inspired) |
+| **I feel inspired**                      | Expressing personal motivation or excitement for ideas.      | 我感到很受启发           | I feel inspired to start my own business now!                | [inspired](https://dictionary.cambridge.org/dictionary/english/inspired) |
+| **that is profound**                     | Something deep, meaningful, or thought-provoking.            | 那很深刻                 | What you said about life is profound and true.               | [profound](https://dictionary.cambridge.org/dictionary/english/profound) |
+| **inclusiveness**                        | The act of including everyone, regardless of differences.    | 包容性                   | The school promotes inclusiveness in all its programs.       | [inclusiveness](https://dictionary.cambridge.org/dictionary/english/inclusiveness) |
+| **sophomores**                           | Second-year students in high school or college (US system).  | 二年级学生               | The sophomores are planning a big class event.               | [sophomore](https://dictionary.cambridge.org/dictionary/english/sophomore) |
+| **split up**                             | To end a relationship or separate from a group.              | 分手；分开               | They split up after dating for two years.                    | [split up](https://dictionary.cambridge.org/dictionary/english/split-up) |
+| **broke up**                             | Past tense of ending a romantic relationship.                | 分手（过去式）           | She broke up with him because they wanted different things.  | [break up](https://dictionary.cambridge.org/dictionary/english/break-up) |
+| **ceramics**                             | Objects made from clay, like pottery or tiles.               | 陶瓷                     | She took a ceramics class to learn how to make vases.        | [ceramics](https://dictionary.cambridge.org/dictionary/english/ceramics) |
+| **I will get all dealt with**            | To handle or take care of everything.                        | 我会把一切都处理好       | Don’t worry, I will get all dealt with before we leave.      |                                                              |
+| **these took my fancy**                  | Something caught my interest or appealed to me.              | 这些吸引了我的兴趣       | The colorful scarves in the shop took my fancy.              | 未直接列出，参考 [fancy](https://dictionary.cambridge.org/dictionary/english/fancy) (见“take sb’s fancy”) |
+| **self-portrait**                        | A picture or artwork of yourself, created by you.            | 自画像                   | Her self-portrait was displayed in the art gallery.          | [self-portrait](https://dictionary.cambridge.org/dictionary/english/self-portrait) |
+| **incredibly moving**                    | Something that deeply affects your emotions.                 | 非常感人                 | The movie’s ending was incredibly moving.                    | [moving](https://dictionary.cambridge.org/dictionary/english/moving) |
+| **premed**                               | A college program preparing students for medical school.     | 医学预科                 | She’s in premed and plans to become a doctor.                | [premed](https://dictionary.cambridge.org/dictionary/english/premed) |
+| **take courses for credits**             | To enroll in classes to earn academic points toward a degree. | 选修学分课程             | I need to take courses for credits to graduate on time.      |                                                              |
+| **very random**                          | Something unexpected or without a clear pattern (informal).  | 很随机                   | His comments during the meeting were very random.            |                                                              |
+| **brooding poet**                        | A thoughtful, moody person who writes poetry.                | 忧郁的诗人               | He’s like a brooding poet, always lost in his thoughts.      | 未直接列出，参考 [brooding](https://dictionary.cambridge.org/dictionary/english/brooding) |
+| **boiling hot**                          | Extremely hot (weather or temperature).                      | 酷热                     | It’s boiling hot outside; let’s stay in the shade.           | [boiling](https://dictionary.cambridge.org/dictionary/english/boiling) (见“boiling hot”) |
+| **twerp**                                | A silly or annoying person (informal, mildly insulting).     | 小混蛋；讨厌鬼           | That twerp kept interrupting our conversation.               | [twerp](https://dictionary.cambridge.org/dictionary/english/twerp) |
+| **he was just a twerp**                  | Describing someone as silly or annoying.                     | 他只是个讨厌鬼           | I didn’t take him seriously; he was just a twerp.            | [twerp](https://dictionary.cambridge.org/dictionary/english/twerp) |
+| **for context**                          | To provide background information for better understanding.  | 为了提供背景             | For context, they’ve been friends since childhood.           | [context](https://dictionary.cambridge.org/dictionary/english/context) |
+| **open up to someone**                   | To share personal feelings or thoughts with someone.         | 向某人敞开心扉           | It took time, but she finally opened up to me.               | [open up](https://dictionary.cambridge.org/dictionary/english/open-up) (见“open up to sb”) |
+| **outgoing, very driven**                | Friendly and highly motivated to achieve goals.              | 外向、非常有动力         | She’s outgoing, very driven, and always full of energy.      | [outgoing](https://dictionary.cambridge.org/dictionary/english/outgoing) + [driven](https://dictionary.cambridge.org/dictionary/english/driven) |
+| **put our heads on**                     | To think carefully or focus (informal, possibly a misphrase). | 集中注意力（可能为误用） | Let’s put our heads on and solve this problem.               | 未直接列出，可能是 [put your heads together](https://dictionary.cambridge.org/dictionary/english/put-your-heads-together) 的误写 |
+| **there was a drift**                    | A growing distance or disconnect between people.             | 有了一种疏远             | There was a drift between them after the argument.           | 未直接列出，参考 [drift](https://dictionary.cambridge.org/dictionary/english/drift) |
+| **it just doesn’t tell the whole story** | Something is incomplete or misleading.                       | 这没有讲出全部真相       | The news report was accurate, but it just doesn’t tell the whole story. | 未直接列出，参考 [whole](https://dictionary.cambridge.org/dictionary/english/whole) |
+| **we just don’t fit**                    | Two people are not compatible.                               | 我们不合适               | We tried dating, but we just don’t fit.                      | 未直接列出，参考 [fit](https://dictionary.cambridge.org/dictionary/english/fit) |
+| **uneventful**                           | Nothing exciting or interesting happened.                    | 平淡无奇                 | The trip was uneventful, just a quiet drive home.            | [uneventful](https://dictionary.cambridge.org/dictionary/english/uneventful) |
+| **art consultant**                       | A person who advises on buying or collecting art.            | 艺术顾问                 | She hired an art consultant to decorate her office.          | 未直接列出，参考 [consultant](https://dictionary.cambridge.org/dictionary/english/consultant) |
+| **mind-blowing**                         | Extremely surprising or impressive (informal).               | 令人震惊                 | The special effects in the movie were mind-blowing.          | [mind-blowing](https://dictionary.cambridge.org/dictionary/english/mind-blowing) |
+| **on so many levels**                    | In many different ways or aspects (informal).                | 在很多层面上             | That book was inspiring on so many levels.                   | 未直接列出，参考 [level](https://dictionary.cambridge.org/dictionary/english/level) |
+| **hypocrisy**                            | Pretending to believe something you don’t actually follow.   | 虚伪                     | His hypocrisy annoyed everyone when he lied about his values. | [hypocrisy](https://dictionary.cambridge.org/dictionary/english/hypocrisy) |
+| **it’s over between us**                 | A relationship has ended.                                    | 我们之间结束了           | After the fight, she said, “It’s over between us.”           | 未直接列出，参考 [over](https://dictionary.cambridge.org/dictionary/english/over) |
+| **in my mid-20s**                        | Being around 23–27 years old.                                | 在我二十多岁的时候       | I started my career in my mid-20s.                           | [mid](https://dictionary.cambridge.org/dictionary/english/mid) (见“mid-”用法) |
+| **keep this insanity with my wife**      | To maintain a chaotic or intense situation (informal).       | 和我妻子维持这种疯狂     | I don’t know how we keep this insanity with my wife going!   | 未直接列出，参考 [insanity](https://dictionary.cambridge.org/dictionary/english/insanity) |
+| **when I go rogue**                      | Acting independently or against the rules (informal).        | 当我自行其是的时候       | When I go rogue, I make decisions without asking anyone.     | 未直接列出，参考 [rogue](https://dictionary.cambridge.org/dictionary/english/rogue) |
+| **I am on my last legs**                 | Extremely tired or near the end of energy (informal).        | 我筋疲力尽了             | After hiking all day, I am on my last legs.                  | [on your last legs](https://dictionary.cambridge.org/dictionary/english/on-your-last-legs) |
 
 
 
