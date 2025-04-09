@@ -51,7 +51,396 @@ Use Clion's feature of creating a C++ class will automatically create a `Classna
 
 In the headerfile, we are going to define the features of class. We are gonna include this headerfile later
 
-we have header guard  
+we have header guard  in header files to prevent this headerfile being included multiple time in the compilation process
 
- 
+```cpp
+#ifndef ADVANCED_RECTANGLE_H
+// if this constant is not defined
+#define ADVANCED_RECTANGLE_H
+// we are gonna define it 
+class Rectangle{
+    int width;
+    int height;
+    void draw();
+    int getArea();
+};
 
+#endif // ADVANCED_RECTANGLE_H
+```
+
+* We use double quotation marks to include header files from out own project while using angle bracket to include headers from standard library 
+* We only do function declaration or aka function prototype in header files, the actual implementation is gonna go our cpp files
+* In cpp files we qualify the function by its class name using double colon`::` which is called scope resolution operator
+
+```cpp
+#include "Rectangle.h"
+#include <iostream>
+
+/*
+    Here we have to qualify the draw() function
+    With its class name
+    Double colon :: is called scope resolution operator
+*/
+using namespace std;
+
+void Rectangle::draw(){ 
+    cout << "drawing a rectangle" << endl;
+}
+
+int Rectangle:: getArea(){
+    return width * height ;
+}
+```
+
+## Creating Objects
+
+We are not gonna include `.cpp` file of class implementation, we only `#include "ClassName.h"` because
+
+The reason we have two files per class is to reduce compilation time, our main file `main.cpp` is independent from the `Rectangle.h`
+
+When we do change to `ClassName.cpp`, only itself will be recompiled. but if we do change to `ClassName.h` then every files that is depend on the `ClassName.h`  like `#include "ClassName.h"` will be recomipled. 
+
+An object is an intance of a class, we can access the member of this object by dot operator like 
+
+```cpp
+ClassName object;
+object.membervariable = "string";
+```
+
+Compilation error will told us we can not access a private member of a class outside of the class. This is the main difference of classes and structures. 
+
+* In structures, when we declare members they are always public or accessible by default
+* In classes, when we declare members, they are always private or inaccessible by default
+
+In order to make them public, we have to use keyword `public` by a colon `:` before all those public members declaration
+
+```cpp
+class Rectangle{
+public: 
+    int width;
+    int height;
+    void draw();
+    int getArea();
+    // Now all the members above is accessible and exposed outside this class
+}
+```
+
+To compile a C++ project with a header file (e.g., ClassName.h), an implementation file (e.g., ClassName.cpp), and a main file (e.g., main.cpp), we can compile all files together into an executable using g++:
+
+```bash
+g++ -o myProgram main.cpp ClassName.cpp
+```
+
+The **sequence** of `main.cpp` and `ClassName.cpp` in the command does **not** matter for the compilation process itself. The g++ compiler processes all the source files listed (`main.cpp` and `ClassName.cpp`) and links them together into the executable (`myProgram`), regardless of the order in which they appear on the command line. Here's why:
+
+We can also compile each .cpp file into an object file first, then link them:
+
+```bash
+g++ -c ClassName.cpp -o ClassName.o  # Compile ClassName.cpp to object file 
+g++ -c main.cpp -o main.o            # Compile main.cpp to object file 
+g++ main.o ClassName.o -o myProgram  # Link object files into executable
+```
+
+- `-c`: Compile without linking.
+- `-o`: Specify output file name.
+
+## Access Modifier
+
+Data hiding principle of OOP saves invalid value assignment -  A class should hide its internal data from the outside code and provide functions for accessing the data.
+
+`public` `private` `protected` are access modifiers , as the best practice we add public section first then add private section 
+
+## Getters and Setters
+
+To achieve Data Hiding principle, by making them private, for each varibale we need two functions accessing one to get value one to set value. 
+
+Getter is also called accessor
+
+Setter is also called mutator (to mutate something means to change something)
+
+`this` is the pointer to current object, we need to de-reference it before we use dot operator to access the actual object, pointer is always just address
+
+Lots of ppl use `m_` M Underlined prefixed to differenciate the parameter and member variable with same name
+
+```cpp
+/*
+    A mosh preferred way to differenciate assignment variables
+*/
+
+void Rectangle::setWidth(int width){
+    if(width < 0){
+        throw invalied_argument("Width Error");
+        // Throw a exception
+    }
+    (*this).width = width;
+    // shortcut for it would be like
+    // this->width = width;
+}
+```
+
+We can also use ClassName followed by double colon to access current object's private member variable like `Rectangle::width = width`, it is another equivalent
+
+* Plus sign in UML means `public`
+* Hyphen sign in UML means `private`
+
+Mosh's implementation of a TextBox class suggested that 
+
+* When we pass a string parameter to fucntion, it is always better to pass it as a reference parameter like `void setValue(string& value);` , value are not copied across function calls, this is for performance reasons
+* Also it is better to declare the parameter a constant `void setValue(const string& value);`, avoiding accidental modification on `value`
+
+## **Constructors**
+
+Constructor is a special function inside class that initialising object, that could avoid the invalid calling of getter by properly do assignment to private variables at first.
+
+Consturctor doesn't have return type, not even `void`, their name is exactly the same as the ClassName
+
+```cpp
+class Rectangle{
+public:
+    Rectangle(int width, int height);
+    void setWidth(int width);
+    void setHeight(int height);
+    int getWidth();
+    int getHeight();
+private:
+    int width;
+    int height;
+};
+```
+
+Using curely braces to initialise objects
+
+```cpp
+int main(){
+    Rectangle rectangle{10,20};
+    return 0;
+}
+```
+
+## Member Initialiser List
+
+In modern C plus plus, our compiler clearly know the left `width`is our member variable, the `width` inside curely braces is paramter, we can do the same for `height` after comma 
+
+```cpp
+Rectangle::Rectangle(int width,int height):width{width},height{height}{
+}
+```
+
+A member initialiser list - techinique is slightly effiecient, but doesn't give us access to do validations
+
+The approach is not exclusive with the tradition approach that do the initialisation inside of the body 
+
+## The Default Constructor
+
+A default constructor is a constructor with no parameters
+
+Just like functions we can always overload constructors, we can have two constructors with different signature
+
+ In modern C++ we can tell our compiler to generate a default compiler for us in `ClassName.h` like this
+
+```cpp
+class ClassName{
+public:
+    ClassName() = default;  
+};
+```
+
+Instead of do implementation in `ClassName.cpp` like this
+
+```cpp
+ClassName::ClassName(){
+}
+```
+
+C plus plus compiler generator a default constructor for every class, that is the reason why we can create class and object without out manually and explicitly defined constructors.
+
+Compiler stops generating a default constructor for us until we declare a non-default constructor, that is why we can't use the `ClassName ObjectName;` to declare an object in main program without giving it parameters. 
+
+## **Using the Explicit Keyword**
+
+Single-argument constructors must be marked explicit to avoid unintentional implicit conversion
+
+That is how implicit conversion happens
+
+```cpp
+class Person{
+public:
+    Person(int age);
+private:
+    int age;
+}
+```
+
+In `main.cpp` :
+
+```cpp
+#inlude "Person.h"
+
+using namespace std;
+
+void showPerson(Person person){
+
+}
+
+int main(){
+    Person person{20};
+    showPerson(20);
+    // When we pass int 20
+    // Reason it works is our compiler knows
+    // In this class we have a constructor takes an int
+    // It implicitly converse the int to a Person object
+}
+```
+
+After declare our single-argument construct with `explicit` keyword, we can't pass int to `showPerson()` anymore. Because after that, our compiler will force us to pass a proper Person object to the function. If we apply `explicit` keyword, there is no longer a "Convertin Constructor"
+
+```cpp
+class Person{
+public:
+    explicit Person(int age);
+private:
+    int age;
+}
+```
+
+## **Constructor Delegation**
+
+ A constructort can delegate  the initialisation of an object to another constructor. With this feature, we can remove duplicate code. 
+
+Given that `Rectangle.h`
+
+```cpp
+class Rectangle{
+public:
+    Rectangle(int width, int height);
+    void setWidth(int width);
+    void setHeight(int height);
+    int getWidth();
+    int getHeight();
+private:
+    int width;
+    int height;
+    string color;
+};
+```
+
+We have the `Rectangle.cpp`
+
+```cpp
+#include "Rectangle.h"
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+Rectangle::Rectangle(int width, int height){
+    setWidth(width);
+    setHeight(height);
+    
+}
+
+// Call another constructor so that we can avoid duplicate code
+// colon after the signature to call 
+Rectangle::Rectangle(int width, int height, const string& color):Rectangle(width,height){
+    this->color = color;
+}
+
+void Rectangle::draw(){ 
+    cout << "Drawing a rectangle" << endl;
+    cout << "Its width is "<< width << ", its height is " << height << "\n";
+}
+
+int Rectangle::getArea(){
+    return width * height ;
+}
+
+void Rectangle::setHeight(int heightInput){
+    if(height < 0){
+        throw invalid_argument("Height Error");
+    }
+    height = heightInput;
+}
+
+void Rectangle::setWidth(int widthInput){
+    if(width < 0){
+        throw invalid_argument("Width Error");
+    }
+    width = widthInput;
+}
+
+int Rectangle::getHeight(){
+    return height;
+}
+
+int Rectangle::getWidth(){
+    return width;
+}
+
+```
+
+* Call another constructor by using `:` after the curent constructor's implementation signature, passing all the paramters it should take
+*  There is no limitation of delegation times, but too much constructor leads to unmaintainable code
+
+## **The Copy Constructor**
+
+Copy constructor is another special constructor,  which is used for copying objects. 
+
+```cpp
+int main(){
+    Rectangle first{10,20,"orange"};
+    Rectangle second = first;
+    return 0;
+}
+```
+
+As for second line `Rectangle second = first;` , the reason coyping works is because under the hood the compiler automatically generates a copy constructor in the rectangle class . This copy constructor takes source object, and then it copy all the values in the source objects to initialise the second object.
+
+This automatical work of copy constructor works pretty well all the time, but sometimes there are situations we need to have control of how objects are copied
+
+Explicitly declare a copy constructor in the header file
+
+```cpp
+Rectangle(const Rectangle& source); 
+// single parameter
+// the type of parameter has to be the same as the class 
+// make it reference parameter
+// if we don't do so, compiler doesn 't know how to copy it 
+// Because the copy operation is defined in this constructor 
+// also, we should make it a constant parameter
+// So we don't accidentally modify the source object as part of the copy operation 
+```
+
+In the implementation `Rectangle.cpp`
+
+```cpp
+Rectangle::Rectangle(const Rectangle& source){
+    this->width = source.width;
+    this->height = soure.height;
+    this->color = source.color; 
+}
+```
+
+It's always best to rely on the copy constructor that the compiler generated for us, because when we have more members added into the class, we have to add more lines to copy more object's variable members manually.  
+
+* If we pass object directly to a function as parameter, it is gonna be copied 
+* Use reference we pass the source object to the function 
+* Every time we pass object as parameter, a copy constructor will be called
+*  
+
+
+
+If we go to implementation file and remove the explicitly created copy constructor then go to header file telling our compiler to delete the copy constructor for us
+
+```cpp
+Rectangle(const Rectangle& source) = delete;
+// If we don't include this line
+//the compiler will automatically generate another copy constructor for us 
+```
+
+With that we can validate that every time we pass object directly as parameter, copy constuctor will be called, we explicitly deleted the copy constructor then all the function with direct object pass can't work 
+
+## The Destructor
+
+ Destructor are automatically called when our object are being destroyed and this is an opportunity for us to free system resources that an object is using. So if we allocate memory or open a file or network connection, then we need to release these resources in destrcutors
+
+In our header file we type a `～` followed by the name of the class, similar to constructor, our destructor doesn't have a return type and the name is exactly the class name :  `～Rectangle();` We can not overload destructors. Each class can have maximum one destructor 
