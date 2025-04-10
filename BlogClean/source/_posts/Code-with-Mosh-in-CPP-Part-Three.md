@@ -443,4 +443,228 @@ With that we can validate that every time we pass object directly as parameter, 
 
  Destructor are automatically called when our object are being destroyed and this is an opportunity for us to free system resources that an object is using. So if we allocate memory or open a file or network connection, then we need to release these resources in destrcutors
 
-In our header file we type a `～` followed by the name of the class, similar to constructor, our destructor doesn't have a return type and the name is exactly the class name :  `～Rectangle();` We can not overload destructors. Each class can have maximum one destructor 
+In our header file we type a `~` followed by the name of the class, similar to constructor, our destructor doesn't have a return type and the name is exactly the class name :  `～Rectangle();` We can not overload destructors. Each class can have a maximum of one destructor.
+
+``` 
+Rectangle::~Rectangle(){
+    cout << "Destructor called" << endl;
+}
+```
+
+In main program we have a Rectangle object, this object is declared on stack. So when the main function finishes the execution. This object is going to go out of scope. So it will be destroyed, At that point, the destructor will be called. 
+
+``` cpp
+int main(){
+    Rectangle first;
+    return 0;
+}
+```
+
+## Static Members
+
+ All the functions and variables we declared so far is are what we called instance member, this member belong to instances of the `Rectangle` class, each instance is gonna have its own copies of these members.  We can also declare members that belong to the `Rectangle` class itself, so we will have only single copy of this member in memory. And this single copy will be shared by all instances. We call it static members
+
+```cpp
+class Rectangle{
+public:
+    static int objectCounts;
+    ~Rectangle();
+    Rectangle(int width, int height);
+    Rectangle(const Rectangle& source);
+    void setWidth(int width);
+    void setHeight(int height);
+    int getWidth();
+    int getHeight();
+private:
+    int width;
+    int height;
+    string color;
+};
+```
+
+*  Whenever we declare a static variable, we should always define it in our implementation `.cpp` file
+
+  ```cpp
+  int Rectangle::objectCount = 0;
+  
+  Rectangle::Rectangle(int width, int height){
+      objectCount++;
+      setWidth(width);
+      setHeight(height);
+  }
+  ```
+
+* We access static variable member by scope resolution operator and class name `ClassName::staticVariable` if it is in public section
+
+* But better practice is put in private section and use line break to separate it from instance members, then define a getter for it
+
+  ```cpp
+  static int getObjectCount();
+  // In header file we need static keyword, in implementation file we remove it
+  int ClassName::getObjectCount(){
+       return objectCount; 
+  }
+  
+  int main(){
+      // Call it by ClassName
+      cout << Rectangle::getObjectCount() << endl;
+      return 0;
+  }
+  ```
+
+  ## **Constant Objects and Functions**
+
+  Just like we can declare a constant integer, we can also declare a constant object
+
+  ``` cpp
+  int main(){
+      const Rectangle rectangle;
+      // When we declare an object as constant
+      // Our compiler makes all of its attributes constant
+      // Which is Read-only and Immutable
+      return 0;
+  }
+  ```
+
+  * We can't modify the attributes of a constant object - They're read only and immutable
+  * When we add the keyword `const` at the end of a function declaration, we are telling the compiler that in this function we're not gonna change the state of this object
+  * It's the best practice that put the `const` keyword at the end of function declaration if it doesn't change the state of object
+  * Compiler doesn't allow us to use function without `const` keyword for constant object, because it think there may be some risk that object will be changed in those non-constant functions
+
+  ```cpp
+  // Syntax for constant function in header file
+  int getAge() const;
+  // Syntax for constant function in implementation file
+  int getAge() const{
+      return age;
+  }
+  ```
+
+  A function to get static member, which is static member, we can still call them when we use a constant object without declare it with`const`. But we should always call it use the `ClassName::staticMemberGetter`
+
+  ```cpp
+  int main(){
+      const Person meow = Person("Meow",10000);
+      // Given that peopleCount is a static member of class like below
+      // In headerfile
+      // static int peopleCount;
+      // static int getPeopleCount();
+      // In implementation file
+      // int getPeopleCount(){ return peopleCount; }
+      // int People::peopleCount = 0;
+      int peopleCount = Person::getPeopleCount();
+  }
+  ```
+
+  The reason we can still access it is due to static member is shared by all objects, we can not change it.
+
+  ## Pointer to Objects
+
+  All the object we have created so far is on the stack - which is a part of  memory that automatically cleaned when our object go outside the scope. When the main function finishes execution, the object we created in the main function will go out of scope, the destrcutor of object's class get called, the memory allocated to this object  will be freed automatically.
+
+  Object created on stack is useful when they are local to a function, so we don't need them outside the function. But sometimes we need an object to stay in memory when the function finishes its execution. In this case we need create object on the heap use the new operator 
+
+  ```cpp
+  int main(){
+      Rectangle* longerRectangle = new Rectangle(10,20);
+       (*longerRectangle).width;
+      longerRectangle->length;
+      // delete only do operation to the memory 
+      delete longerRectangle;
+      // we should make it point to null ptr
+      // otherwise it will stick to the address forever
+      // we refer to that a dongling pointer
+      // it leads to memory leak
+      longerRectangle = nullptr; 
+      return 0;
+  }
+  ```
+
+  `new` operator returns a pointer, in this case Rectangle object pointer, so we store it in a Rectangle pointer.
+
+  Because it is a pointer, so we can access by arrow operator `->` or dot operator`.` after dereferencing. 
+
+   
+
+  We can rewrite with smart pointer
+
+  ```
+   #include <memory>
+   
+   int main(){
+      // specify the the object we wanna create in angle bracket
+      unique_ptr<Rectangle> longerRectangle =  make_unique<Rectngle >(10,20) ;
+      rectangle->draw(); 
+      return 0;
+  } 
+  ```
+
+  <img width="1840" alt="Image" src="https://github.com/user-attachments/assets/1c9cfbaf-0425-4124-a3f1-a3dd61f9302b" />
+
+  ```cpp
+  #ifndef ADVANCED_SMART_POINTER_H
+  #define ADVANCED_SMART_POINTER_H
+  
+  class SmartPointer{
+  public:
+      // My raw implementation below
+      // SmartPointer(int* ptr);
+      // single argument constructor need explicit as better practice
+      explicit SmartPointer(int* ptr);
+      ~SmartPointer();
+  
+  private:
+      int* ptr;
+  };
+  
+  #endif
+  ```
+
+  then implementation
+
+  ```cpp
+  #include "SmartPointer.h"
+  
+  SmartPointer::SmartPointer(int* ptr){ 
+      this->ptr = ptr;
+  }
+  
+  SmartPointer::~SmartPointer(){
+      delete ptr;
+      ptr = nullptr;
+  }
+  ```
+
+  main.cpp
+
+  ```cpp
+  #include "SmartPointer.h"
+  
+  int main(){
+      SmartPointer ptr{new int}; 
+      return 0;
+  }
+  ```
+
+  * Use new operator + DataType, we get a return of DataType Pointer, then we use it to initialise the object of SmartPointer Class. 
+  * Use curely braces to initialise the object
+
+
+
+## **Array of Objects **
+
+We can create array of Objects just like any other data type.
+
+There is two ways to generate an array of object
+
+```cpp
+Rectangle recArray[3] = {Rectangle(10,20),Rectangle(10,20,"blue"),Rectangle()};
+```
+
+Here we explicitly call the constructors
+
+```cpp
+Rectangle recArray[3] = { {10,20},{10,20,"blue"},{}};
+```
+
+We can also use the brace initialiser, because compiler know each element of array is an instance of Rectangle object, we  directly put the brace initialiser in body of array declaration without giving the data type.
