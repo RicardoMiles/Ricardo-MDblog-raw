@@ -188,7 +188,7 @@ Mosh's implementation of a TextBox class suggested that
 * When we pass a string parameter to fucntion, it is always better to pass it as a reference parameter like `void setValue(string& value);` , value are not copied across function calls, this is for performance reasons
 * Also it is better to declare the parameter a constant `void setValue(const string& value);`, avoiding accidental modification on `value`
 
-## **Constructors**
+## Constructors
 
 Constructor is a special function inside class that initialising object, that could avoid the invalid calling of getter by properly do assignment to private variables at first.
 
@@ -256,7 +256,7 @@ C plus plus compiler generator a default constructor for every class, that is th
 
 Compiler stops generating a default constructor for us until we declare a non-default constructor, that is why we can't use the `ClassName ObjectName;` to declare an object in main program without giving it parameters. 
 
-## **Using the Explicit Keyword**
+## Using the Explicit Keyword
 
 Single-argument constructors must be marked explicit to avoid unintentional implicit conversion
 
@@ -303,7 +303,7 @@ private:
 }
 ```
 
-## **Constructor Delegation**
+## Constructor Delegation
 
  A constructort can delegate  the initialisation of an object to another constructor. With this feature, we can remove duplicate code. 
 
@@ -381,7 +381,7 @@ int Rectangle::getWidth(){
 * Call another constructor by using `:` after the curent constructor's implementation signature, passing all the paramters it should take
 *  There is no limitation of delegation times, but too much constructor leads to unmaintainable code
 
-## **The Copy Constructor**
+## The Copy Constructor
 
 Copy constructor is another special constructor,  which is used for copying objects. 
 
@@ -512,7 +512,7 @@ private:
   }
   ```
 
-  ## **Constant Objects and Functions**
+## Constant Objects and Functions
 
   Just like we can declare a constant integer, we can also declare a constant object
 
@@ -558,7 +558,7 @@ private:
 
   The reason we can still access it is due to static member is shared by all objects, we can not change it.
 
-  ## Pointer to Objects
+## Pointer to Objects
 
   All the object we have created so far is on the stack - which is a part of  memory that automatically cleaned when our object go outside the scope. When the main function finishes execution, the object we created in the main function will go out of scope, the destrcutor of object's class get called, the memory allocated to this object  will be freed automatically.
 
@@ -588,7 +588,7 @@ private:
 
   We can rewrite with smart pointer
 
-  ```
+  ```cpp
    #include <memory>
    
    int main(){
@@ -651,7 +651,7 @@ private:
 
 
 
-## **Array of Objects **
+## Array of Objects 
 
 We can create array of Objects just like any other data type.
 
