@@ -9,7 +9,7 @@ tags:
  - SLA
 categories:
  - Coding
-excerpt: "Why My Simple C++ String Capitalization Failed - And How to Fix Common Input Mistakes"
+excerpt: "Why My Simple C++ String Capitalization Failed - And How to Fix Common Input Mistakes: Character Literals vs String Literals, `getline()` and stream understanding..."
 ---
 
 ## Original Code
@@ -160,7 +160,7 @@ Trying to use `cin` as if it were a string.
 ### **What the Compiler Told Me:**
 
 - **"Comparison between pointer and integer"** → I compared `char` with `const char*`.
-- **"No viable overloaded '+='"** → You tried to add `cin` to a string.
+- **"No viable overloaded '+='"** → I tried to add `cin` to a string.
 
 ------
 
@@ -189,9 +189,7 @@ int main() {
 }
 ```
 
-------
-
-## **Summary of Lessons Learned**
+## **Key Takeaways for Future Code:**
 
 | **Mistake**        | **Lesson**                                                |
 | :----------------- | :-------------------------------------------------------- |
@@ -201,10 +199,8 @@ int main() {
 | Unnecessary copy   | Return the string directly (RVO optimises it).            |
 | Misusing `cin`     | `cin` is a stream, not a string. Use `>>` or `getline()`. |
 
-### **Key Takeaways for Future Code:**
-
-✅ Be careful with string literals and char literals.
-✅ Don't treat cin as if it was a string.
-✅ Always check for empty strings before accessing elements.
-✅ Avoid unnecessary copies (let C++ optimise).
-✅ Learn more about `getline()` function and enhance the understanding stream.
+* Be careful with string literals and char literals. `"s"` vs `'s'`
+* Don't treat `cin` as if it was a `std::string` type variable.
+* Always check for empty strings before accessing elements.
+* Avoid unnecessary copies (let C++ optimise).
+* Learn more about `getline()` function and enhance the understanding stream.

@@ -109,7 +109,7 @@ At a high level, references are a C++ abstraction, but at a low level (in the co
   - References can’t be reassigned to refer to another object.
   - References don’t require explicit dereferencing syntax.
 
-### 4. **Memory Lawet**
+### 4. **Memory Layout**
 - Suppose we have a `Rectangle` object like this:
   ```cpp
   Rectangle r1{5, 5, "red"};

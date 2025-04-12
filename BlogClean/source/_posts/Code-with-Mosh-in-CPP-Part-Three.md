@@ -664,7 +664,18 @@ Rectangle recArray[3] = {Rectangle(10,20),Rectangle(10,20,"blue"),Rectangle()};
 Here we explicitly call the constructors
 
 ```cpp
-Rectangle recArray[3] = { {10,20},{10,20,"blue"},{}};
+Rectangle recArray[3] = { {10,20},{10,20,"blue"},{}}; 
 ```
 
 We can also use the brace initialiser, because compiler know each element of array is an instance of Rectangle object, we  directly put the brace initialiser in body of array declaration without giving the data type.
+
+
+
+## Overloading Equaliser Operator
+
+## Overloading Comparison Operator
+
+
+
+
+
