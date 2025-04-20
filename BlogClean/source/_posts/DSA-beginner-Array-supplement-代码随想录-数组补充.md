@@ -27,14 +27,43 @@ excerpt: "Supplementary Materials for Learn Algorithm with Carl.《代码随想�
 * C++中二维数组是连续分布的。
 * 使用C++的话要注意vector和array的区别，vector的底层实现是array，严格来说，vector是容器，不是数组。
 * 数组的元素是不能删的，只能覆盖。
-* C++中二维数组正在地址空间上是连续的，先第一行row 0 从0号元素开始连续一直到这一行结束，然后第二行row1的0号元素地址接着第一行n号元素（第一行最后一个）元素的后面。
+* C++中二维数组正在地址空间上是连续的，先第一行`row 0` 的`0`号元素开始连续一直到这一行结束，然后第二行`row1`的`0`号元素地址接着第一行`n`号元素（第一行最后一个）元素的后面。
 
 ## Question
 
 * 我有点忘记C语言里面关于字符串是数组语法糖的相关内容了，注意复习下Syntax Sugar。
+
+  * In C, strings are actually arrays of characters that end with a null terminator `\0`.
+
+    ```c
+    char str1[] = "hello";   // Assign 6 char automatically(including'\0')
+    char str2[6] = "hello";  // Mannually designate size ensuring space for'\0'
+    char str3[] = {'h','e','l','l','o','\0'};  // Equivalent Code (No Syntax Sugar)
+    ```
+
 * Carl讲了C++中数组、多维数组的内存空间分布，但是没有说清楚Java（一方面因为教程C++为主，另外一方面pdf版可能落后）。所以，Java的多维数组内存怎么管理的，怎么弄的
-* 那么到底vector和array啥区别，没有系统性学C++的弊病，需要学习探索。
-* 那么具体vector怎么用C的array来达成底层实现的，学习下。
+
+  * Java 中的多维数组不是连续内存块
+
+  * Java 的多维数组其实是**数组的数组(Array of arrays)**，Multidimensional arrays themselves store pointer&reference to three array
+
+  * 内存管理上，每一行是独立分配的 `int[]`
+
+  * 访问时：`matrix[i][j]` 其实是两次解引用
+
+  * 支持不规则（jagged）结构
+
+    ```java
+    // Jagged Array in JAVA
+    int[][] jagged = new int[3][];
+    jagged[0] = new int[2];
+    jagged[1] = new int[4];
+    jagged[2] = new int[1];
+    ```
+
+* 那么到底vector和array啥区别 -> 见补充笔记
+
+* 那么具体vector怎么用array来达成底层实现的 -> 见补充笔记
 
 # Supplementary materials for Array 
 
@@ -148,100 +177,26 @@ int main() {
 ## Features of Array in C++
 
 * **Contiguous Memory**: Stored in continuous memory blocks.
+* **Fixed Size**: Declared at compile-time and cannot be resized.
+* **Zero-based Indexing**: Access starts from index 0.
+* **Fast Access**: Random access is O(1) due to indexing.
+* **Multidimensional Support**: Can create 2D or multi-dimensional arrays.
 
-*  **Fixed Size**: Declared at compile-time and cannot be resized.
-
-*  **Zero-based Indexing**: Access starts from index 0.
-
-*  **Fast Access**: Random access is O(1) due to indexing.
-
-*  **Multidimensional Support**: Can create 2D or multi-dimensional arrays.
-
-  ```cpp
-  int matrix[3][3] = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}}; // 2D array
-  ```
+```cpp
+int matrix[3][3] = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}}; // 2D array
+```
 
 ## **Typical Algorithms  Related to Arrays**
 
- 1. **Search**: Linear search (O(n)) and binary search (O(log n) for sorted arrays).
-
+ 1. **Search**: Linear search (**O(n)**) and binary search (**O(log n)** for sorted arrays).
     * Linear Search in Array of int
-
-      ```cpp
-      #include <iostream>
-      using namespace std;
-      
-      int linearSearch(int arr[], int n, int target) {
-          for (int i = 0; i < n; i++) {
-              if (arr[i] == target) {
-                  return i; // Found, return index
-              }
-          }
-          return -1; // Not found
-      }
-      
-      int main() {
-          int arr[] = {2, 4, 6, 8, 10};
-          int n = sizeof(arr) / sizeof(arr[0]);
-          int target = 6;
-      
-          int result = linearSearch(arr, n, target);
-          if (result != -1) {
-              cout << "Element found at index " << result << endl;
-          } else {
-              cout << "Element not found" << endl;
-          }
-          return 0;
-      }
-      ```
-
-      
-
+    
     * Linear Search in a Vector (Using STL containers)
-
-      ```cpp
-      ```
-
-      
-
+    
     * Case-Insensitive Linear Search in a String
-
-      ```cpp
-      ```
-
-      
-
+    
     * Finding an Object in a List of Objects by Linear Search
-
-      ```cpp
-      #include <iostream>
-      using namespace std;
-      
-      int linearSearch(int arr[], int n, int target) {
-          for (int i = 0; i < n; i++) {
-              if (arr[i] == target) {
-                  return i; // Found, return index
-              }
-          }
-          return -1; // Not found
-      }
-      
-      int main() {
-          int arr[] = {2, 4, 6, 8, 10};
-          int n = sizeof(arr) / sizeof(arr[0]);
-          int target = 6;
-      
-          int result = linearSearch(arr, n, target);
-          if (result != -1) {
-              cout << "Element found at index " << result << endl;
-          } else {
-              cout << "Element not found" << endl;
-          }
-          return 0;
-      }
-      ```
-
-
+    
 
 ​	2.	**Sorting**: QuickSort, MergeSort, BubbleSort, etc.
 
@@ -280,5 +235,3 @@ Here are popular LeetCode questions that involve arrays:
 ​	•	**Longest Consecutive Sequence** (Problem #128)
 
 These problems cover array traversal, dynamic programming, prefix sums, and more.
-
-###### 
