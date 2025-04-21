@@ -63,7 +63,7 @@ excerpt: "Supplementary Materials for Learn Algorithm with Carl.《代码随想�
 
 * 那么到底vector和array啥区别 -> 见补充笔记
 
-* 那么具体vector怎么用array来达成底层实现的 -> 见补充笔记
+* 那么具体vector怎么用array来达成底层实现的 -> 下面只有基础实现，最完整实现在我的DSA学习仓库 [My DIY Vector](https://github.com/RicardoMiles/DSA2025/tree/main/MoshCPP/MyVector).
 
 # Supplementary materials for Array 
 
