@@ -1165,7 +1165,9 @@ int main(){
 }
 ```
 
-## **Structures and Functions**
+## Structures and Enumerations
+
+### **Structures and Functions**
 
 * We can use structure as function's parameter just like any other data type
 
@@ -1187,7 +1189,7 @@ int main(){
   }
   ```
 
-## **Pointer to Structures**
+### **Pointer to Structures**
 
 * Whenever we wanna pass object around, it's always better to use reference parameters as opposed to pointers, because they are much safer to work with
 * But we still have to learn how to pass objects using pointers
@@ -1228,7 +1230,7 @@ int main(){
 }
 ```
 
-## **Defining Enumerations**
+### **Defining Enumerations**
 
 Another way to create custom type - Using Enumeration, we use it to represents a bunch of related constants
 
@@ -1321,7 +1323,7 @@ Access member using `::` operator
  
  ```
 
-## **Strongly Typed Enumerations**
+### **Strongly Typed Enumerations**
 
 We can not define another enum with same members - different enums with same members. C++ 11 introduce a new feature to solve this - strongly typed enums. We just need to type  keyword `class` after the keyword `enum` and variable name. It allow different enums with same members with same values without name collisions.
 
@@ -1363,7 +1365,9 @@ int main(
 
 But the strongly typed enums are lack of ability that implicitly convert member into int. We have to do it when we compare its memeber with int. Use `static_cast<tartget_data_type>(current_variable)` to convert.
 
-## What streams are
+## Streams
+
+### What streams are
 
 Using `cout` we can write something to console or terminal, but in real-world programming we read or write data to a variety of sources including 
 
@@ -1385,7 +1389,7 @@ We can think of a stream as a data source or destination, we have lots of differ
 
  All of the stream inherited things from `ios` class, `ios` inherited from `ios_base`. So they got same interface, we can work with them same way.
 
-## **Writing to Streams**
+### **Writing to Streams**
 
 Use insertion operator we can write data to `cout` - represents the standard output stream
 
@@ -1431,7 +1435,7 @@ ostream& write(char* s, streamsize n);
 
 Operator `<<` have lots of overload with different built-in data type, it also means we can overload it for our own data type and structure a `<<` operator.  
 
-## Reading from Streams
+### Reading from Streams
 
 ```cpp
 int main() {
@@ -1510,7 +1514,7 @@ Second: 30
 You entered 10 and 30 
 ```
 
-## **Handling Input Error**
+### **Handling Input Error**
 
 The pattern and logic for handle input error is :
 
@@ -1578,13 +1582,13 @@ int getNumber(const string& prompt) {
 }
 ```
 
-## **File Streams**
+### **File Streams**
 
 * `ifstream` short for input file stream - use it to read data from file
 * `ofstream` short for output file stream - use it to write data to a file 
 * `fstream` short for file stream - combine both of two above functionalities
 
-## Writing to Text Files
+### Writing to Text Files
 
 We have to  `#include <fstream>` to write things to Text Files. We can also use string manipulators for formatting output, `#include <iomanip>` for use it, it is short for input-output-manipulator.
 
@@ -1645,7 +1649,7 @@ std::cout << "World\n";
 
 **Key point:** When we use `\n`, the data in the buffer is not flushed immediately. However, it will be written to the output stream in an organized manner as we expect, without repetition or confusion.
 
-## **Reading from Text Files**
+### **Reading from Text Files**
 
 The difference between `getline()` function and stream extraction operator:
 
@@ -1691,7 +1695,7 @@ if(file.is_open()){
 
 `getline()` function has third parameters which is delimiter, if we use `getline(file,str, ",");`, this will read all the characters until it finds a comma.
 
-## **Writing to Binary Files** 
+### **Writing to Binary Files** 
 
 Pass second argument to file stream constructor function to designate what mode our file is gonna store
 
@@ -1731,7 +1735,7 @@ int main(){
 }
 ```
 
-## **Reading from Binary Files**
+### **Reading from Binary Files**
 
 Reading from binray files is the opposite of writing:
 
@@ -1763,7 +1767,7 @@ We define `number` because we don't know where we should put our data in, and we
 
 * Second argument is the size of data, determine how to extract date from file
 
-## **Working with File Streams**
+### **Working with File Streams**
 
 ```cpp
 #include <iostream>
@@ -1785,13 +1789,13 @@ There is another mode called append `ios::app`, when we use `ios::out` if the fi
 
 We can also specify we open it in binary mode by `ios::binary`
 
-## String Streams
+### String Streams
 
 * istringstream
 * ostringstream
 * stringstream
 
-## Convert a value to a string
+### Convert a value to a string
 
 `to_string()` function doesn't give us full control of specifying digits or anything else, it just defaultly convert number into string with 6 digit float formatting look. `#include <sstring>` to use string streams instead. `#include <iomanip>` to formatting.
 
@@ -1813,7 +1817,7 @@ int main(){
 
 We have full control over how this number is converted to a string
 
-## ﻿﻿Parse a string to extract values
+### ﻿﻿Parse a string to extract values
 
 ```cpp
 int main() {

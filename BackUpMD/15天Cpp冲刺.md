@@ -188,28 +188,16 @@ C++和C语言的头文件有一些不同，特别是在C++中使用了标准模�
     stdio.h
     ```
 
-    。
-
     - 头文件：`#include <iostream>`
-    - 输入：`cin`，输出：`cout`
-
-  - 不需要`.h`后缀
-
-    ：C++的头文件通常不带
-
-    ```
-    .h
-    ```
-
-    ，例如：
+  - 输入：`cin`，输出：`cout`
+    
+  - 不需要`.h`后缀, C++的头文件通常不带`.h，例如：
 
     - `#include <cmath>`：代替C语言中的`math.h`
-    - `#include <cstdlib>`：代替C语言中的`stdlib.h`
-
-  - 标准模板库（STL）
-
-    ：C++引入了标准模板库（STL），用于数据结构和算法的头文件：
-
+  - `#include <cstdlib>`：代替C语言中的`stdlib.h`
+    
+- 标准模板库（STL）:C++引入了标准模板库（STL），用于数据结构和算法的头文件：
+  
     - `#include <vector>`：用于动态数组（vector容器）。
     - `#include <string>`：用于字符串操作。
-    - `#include <map>`：用于键值对映射的map容器。
+  - `#include <map>`：用于键值对映射的map容器。

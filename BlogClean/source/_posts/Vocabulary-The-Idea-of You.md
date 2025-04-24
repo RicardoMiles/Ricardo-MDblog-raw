@@ -1,5 +1,5 @@
 ---
-title: The Idea of You Vocabulary
+title: Vocabulary - The Idea of You Vocabulary
 date: 2024-05-11 23:26:23
 categories:
   - SLA

@@ -1,5 +1,5 @@
 ---
-title: Trying S04 Vocabulary
+title: Vocabulary - Trying S04 
 date: 2024-06-23 13:26:23
 categories:
   - SLA

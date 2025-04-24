@@ -1,26 +1,18 @@
-matplotlib两种画图区别
+# matplotlib两种画图区别
 
-你提到的代码：
+New approach to draw charts
 
-```
-python
-
-
-复制代码
+```Python
 fig, ax = plt.subplots()
 ```
 
-与之前我给你的代码：
+compared with previous approach provided by ChatGPYT
 
-```
-python
-
-
-复制代码
+```python
 plt.plot(data)
 ```
 
-在创建图表时有一些差异，下面是它们的区别和各自的好处：
+Difference and their own goings:
 
 ### 区别：
 
@@ -46,17 +38,17 @@ plt.plot(data)
 ### 具体示例：
 
 - **简单绘图（`plt.plot()`）**：
-
+  
   ```
   python复制代码plt.plot(data)
   plt.title("Simple Line Plot")
   plt.show()
   ```
-
+  
   - 这种方式适用于简单绘图，快速方便。
 
 - **复杂绘图（`plt.subplots()`）**：
-
+  
   ```
   python复制代码fig, ax = plt.subplots()
   ax.plot(data)
@@ -65,9 +57,9 @@ plt.plot(data)
   ax.set_ylabel("Rainfall")
   plt.show()
   ```
-
+  
   - 这种方式让你可以更精确地控制图表，适合复杂或需要多子图的场景。例如，如果你想要绘制多个子图，可以这么做：
-
+  
   ```
   python复制代码fig, (ax1, ax2) = plt.subplots(1, 2)  # 创建两个子图
   ax1.plot(data)
