@@ -13,7 +13,9 @@ timezone: ''
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url:  https://ricardopotter.github.io/RicardoBlog/
+# url:  https://ricardopotter.github.io/RicardoBlog/
+url: http://ricardoblog.servehttp.com/   #  No-IP New Domain
+root: /                            
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
@@ -104,3 +106,12 @@ deploy:
   type: git
   repo: https://github.com/RicardoPotter/RicardoBlog.git
   branch: main
+
+# Maths Latex Support
+mathjax:
+  tags: none # or 'ams' or 'all'
+  single_dollars: true # enable single dollar signs as in-line math delimiters
+  cjk_width: 0.9 # relative CJK char width
+  normal_width: 0.6 # relative normal (monospace) width
+  append_css: true # add CSS to every page
+  every_page: false # if true, every page will be rendered by mathjax regardless the `mathjax` setting in Front-matter of each article
